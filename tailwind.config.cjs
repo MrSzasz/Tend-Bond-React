@@ -5,10 +5,20 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    colors: {
-      main: '#F48F4A'
-    },
-    extend: {},
+    extend: {
+      colors: {
+        tbMain: "#F48F4A",
+        tbGray: "#F3F3F3",
+      },
+      transitionDuration: {
+        tbBase: '.25s'
+      },
+      fontFamily: {
+        tbTitles: ['tbTitles', 'tbTitles'],
+        tbCaps: ['tbCaps', 'tbCaps'],
+      },
+
+    }
   },
   plugins: [],
 }

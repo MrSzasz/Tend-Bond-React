@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: tbTitles;
+    src: url(./assets/fonts/constan.ttf);
+}
+
+@font-face {
+    font-family: tbCaps;
+    src: url(./assets/fonts/DMSans-Regular.ttf);
+}
