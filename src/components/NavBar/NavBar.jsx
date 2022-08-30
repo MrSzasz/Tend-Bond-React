@@ -13,13 +13,13 @@ const NavBar = () => {
         <div className="text-3xl relative text-center w-full font-tbTitles font-bold tracking-wide">Trend Bond</div>
         <div className="absolute w-min right-0 flex gap-2 m-4">
           <div className="cart">
-            <RiShoppingBagLine />
+            <RiShoppingBagLine size={20} />
           </div>
           <div className="favorites">
-            <AiOutlineHeart />
+            <AiOutlineHeart size={20} />
           </div>
           <div className="searchBar">
-            <FiSearch />
+            <FiSearch size={20} />
           </div>
         </div>
       </div>

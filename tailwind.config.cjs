@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         tbMain: "#F48F4A",
         tbGray: "#F3F3F3",
+        tbGreen:"#25D366"
       },
       transitionDuration: {
         tbBase: '.25s'
