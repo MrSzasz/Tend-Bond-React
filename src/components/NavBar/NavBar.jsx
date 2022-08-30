@@ -5,7 +5,7 @@ import { FiSearch } from "react-icons/fi";
 
 const NavBar = () => {
   return (
-    <nav className="bg-white flex flex-col justify-center items-center gap-3 py-2">
+    <nav className="bg-white flex flex-col justify-center items-center gap-3 pb-2">
       <marquee className="bg-tbMain" behavior="scroll" direction="left">
         ENVIO GRATIS A PARTIR DE $5000
       </marquee>
