@@ -6,7 +6,7 @@ const MainSections = ({title, text, link, img}) => {
         <p className="text-sm">
           {text}
         </p>
-        <a href={link} className="tbBtn mt-3">Ver mas</a>
+        <a href={link} className="tbBtn mt-3 w-max">Ver mas</a>
       </div>
       <img className="bg-blue-600 w-full h-[70vh]" src={img} alt="" />
     </div>

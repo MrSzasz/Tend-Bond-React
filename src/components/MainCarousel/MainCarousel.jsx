@@ -18,19 +18,20 @@ const MainCarousel = () => {
       navigation={true}
       effect="fade"
       loop={true}
+      autoplay={true}
       className="mySwiper"
     >
-      <SwiperSlide>
-        <SlideMainCarousel img="https://picsum.photos/500/300?random=1"/>
+      <SwiperSlide className="mainSwiperSlide">
+        <SlideMainCarousel img="http://placeimg.com/500/200/nature"/>
       </SwiperSlide>
-      <SwiperSlide>
-        <SlideMainCarousel img="https://picsum.photos/500/300?random=2"/>
+      <SwiperSlide className="mainSwiperSlide">
+        <SlideMainCarousel img="http://placeimg.com/500/200/architecture"/>
       </SwiperSlide>
-      <SwiperSlide>
-        <SlideMainCarousel img="https://picsum.photos/500/300?random=3"/>
+      <SwiperSlide className="mainSwiperSlide">
+        <SlideMainCarousel img="http://placeimg.com/500/200/animals"/>
       </SwiperSlide>
-      <SwiperSlide>
-        <SlideMainCarousel img="https://picsum.photos/500/300?random=4"/>
+      <SwiperSlide className="mainSwiperSlide">
+        <SlideMainCarousel img="http://placeimg.com/500/200/people"/>
       </SwiperSlide>
     </Swiper>
   );

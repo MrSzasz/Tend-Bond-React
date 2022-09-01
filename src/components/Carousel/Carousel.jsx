@@ -15,33 +15,34 @@ const Carousel = () => {
         modules={[Navigation, Autoplay, EffectFade]}
         autoHeight={true}
         navigation={true}
+        autoplay={true}
         loop={true}
         slidesPerView={5}
-        spaceBetween={25}
+        spaceBetween={15}
         className="mySwiper newArrivalsSwiper"
       >
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard/>
+          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard/>
+          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard/>
+          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard/>
+          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard/>
+          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard/>
+          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
       </Swiper>
     </div>
