@@ -7,7 +7,10 @@ const MainComponent = () => {
     <>
         <MainCarousel/>
         <Carousel/>
-        <MainSections/>
+        <MainSections text={"lorem y otras cosas que ponemos en el texto de ejemplo"} title={"Accesorios"} img={"https://picsum.photos/250/250/?random=1"} link={"https://www.google.com.ar"} />
+        <MainSections text={"lorem y otras cosas que ponemos en el texto de ejemplo"} title={"Indumentaria"} img={"https://picsum.photos/250/250/?random=1"} link={"https://www.google.com.ar"} />
+        <MainSections text={"lorem y otras cosas que ponemos en el texto de ejemplo"} title={"Zapatos"} img={"https://picsum.photos/250/250/?random=1"} link={"https://www.google.com.ar"} />
+
     </>
   )
 }
