@@ -10,7 +10,7 @@ import NewArrivalsCard from "../NewArrivalsCard/NewArrivalsCard";
 const Carousel = () => {
   return (
     <div className="w-[90%] m-auto">
-      <h1 className="text-xl font-bold py-2">New arrivals</h1>
+      <h1 className="tbTitlesStyles">New arrivals</h1>
       <Swiper
         modules={[Navigation, Autoplay, EffectFade]}
         autoHeight={true}

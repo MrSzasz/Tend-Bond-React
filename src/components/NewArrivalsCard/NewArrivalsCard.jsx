@@ -6,7 +6,7 @@ const NewArrivalsCard = ({ img, title, price, link }) => {
       <AiOutlineHeart className="absolute top-1 right-1" />
       <div className="relative min-h-min min-w-min group overflow-hidden cursor-pointer">
         <img className="object-cover min-w-full" src={img} alt="" />
-        <a href="https://github.com/" className="flex justify-center items-center transition-all duration-500 group-hover:top-0 group-hover:visible invisible h-full overflow-hidden bg-tbMain w-full py-2 absolute top-full right-0 font-bold text-white text-2xl opacity-90">
+        <a href={link} className="flex justify-center items-center transition-all duration-500 group-hover:top-0 group-hover:visible invisible h-full overflow-hidden bg-tbMain w-full py-2 absolute top-full right-0 font-bold text-white text-2xl opacity-90">
           Ver más
         </a>
       </div>
