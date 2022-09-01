@@ -11,3 +11,10 @@
     font-family: tbCaps;
     src: url(./assets/fonts/DMSans-Regular.ttf);
 }
+
+
+@layer components {
+    .tbBtn {
+        @apply bg-tbMain rounded-full py-1.5 px-16 text-white;
+    }
+}
