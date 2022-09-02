@@ -1,8 +1,7 @@
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import MainButton from "../MainButton/MainButton";
 
-const NewArrivalsCard = ({ img, title, price }) => {
+const ProductCard = ({ img, title, price }) => {
   return (
     <div className="relative min-h-min h-min">
       <AiOutlineHeart className="absolute top-1 right-1" />
@@ -20,4 +19,4 @@ const NewArrivalsCard = ({ img, title, price }) => {
   );
 };
 
-export default NewArrivalsCard;
+export default ProductCard;

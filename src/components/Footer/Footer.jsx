@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className="footer flex flex-col gap-3 pt-2 text-center bg-tbGray font-tbCaps">
       <h4 className="font-bold text-lg">CONTACTATE CON NOSOTROS</h4>
-      <div className="flex gap-12 justify-center p-6 py-6">
+      <div className="flex gap-6 justify-center p-6 py-6">
         <FooterCard name={"Whatsapp"} data={1133225544}>
           <IoLogoWhatsapp color="#F48F4A" size={30} />
         </FooterCard>

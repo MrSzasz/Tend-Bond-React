@@ -4,13 +4,13 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import "swiper/css/effect-fade";
-import "./Carousel.scss";
-import NewArrivalsCard from "../NewArrivalsCard/NewArrivalsCard";
+import "./ProductsCarousel.scss";
+import ProductCard from "../ProductCard/ProductCard";
 
-const Carousel = () => {
+const ProductsCarousel = ({title}) => {
   return (
     <div className="w-[90%] m-auto">
-      <h1 className="tbTitlesStyles">New arrivals</h1>
+      <h1 className="tbMainTitles">{title}</h1>
       <Swiper
         modules={[Navigation, Autoplay, EffectFade]}
         autoHeight={true}
@@ -22,31 +22,31 @@ const Carousel = () => {
         className="mySwiper newArrivalsSwiper"
       >
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
+          <ProductCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
+          <ProductCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
+          <ProductCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
+          <ProductCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
+          <ProductCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
 
         <SwiperSlide className="flex flex-col">
-          <NewArrivalsCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
+          <ProductCard img={"http://placeimg.com/250/390/nature"} title={"title"} price={3500}/>
         </SwiperSlide>
       </Swiper>
     </div>
   );
 };
 
-export default Carousel;
+export default ProductsCarousel;

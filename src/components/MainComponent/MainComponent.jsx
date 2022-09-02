@@ -1,12 +1,12 @@
 import MainCarousel from "../MainCarousel/MainCarousel";
-import Carousel from "../Carousel/Carousel";
+import ProductsCarousel from "../ProductsCarousel/ProductsCarousel";
 import MainSections from "../MainSections/MainSections";
 
 const MainComponent = () => {
   return (
     <>
       <MainCarousel />
-      <Carousel />
+      <ProductsCarousel title="New arrivals" />
       <MainSections
         text={"lorem y otras cosas que ponemos en el texto de ejemplo"}
         title={"Accesorios"}

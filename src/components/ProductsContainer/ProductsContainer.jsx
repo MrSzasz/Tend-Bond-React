@@ -1,4 +1,4 @@
-import NewArrivalsCard from "../NewArrivalsCard/NewArrivalsCard";
+import ProductCard from "../ProductCard/ProductCard";
 import { AiOutlineLeft, AiOutlineDown } from "react-icons/ai";
 import { GoSettings } from "react-icons/go";
 import { Link } from "react-router-dom";
@@ -115,7 +115,7 @@ const ProductsContainer = () => {
         <h2 className="tbTitleStyles">New arrivals</h2>
         <div className="grid grid-cols-5 gap-3">
           {products.map((item) => (
-            <NewArrivalsCard
+            <ProductCard
               img={item.img}
               price={item.price}
               title={item.name}

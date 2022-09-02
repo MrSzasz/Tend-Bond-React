@@ -1,8 +1,10 @@
-import React from 'react'
+import ProductsCarousel from '../ProductsCarousel/ProductsCarousel'
 
 const ProductDetails = () => {
   return (
-    <div>ProductDetails</div>
+    <div>
+      <ProductsCarousel title={"También te puede interesar"}/>
+    </div>
   )
 }
 
