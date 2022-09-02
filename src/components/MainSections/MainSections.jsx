@@ -1,3 +1,5 @@
+import MainButton from "../MainButton/MainButton";
+
 const MainSections = ({title, text, link, img}) => {
   return (
     <div className="grid grid-cols-2 pl-[5%] py-2">
@@ -6,9 +8,9 @@ const MainSections = ({title, text, link, img}) => {
         <p className="text-sm">
           {text}
         </p>
-        <a href={link} className="tbBtn mt-3 w-max">Ver mas</a>
+        <MainButton link={link} />
       </div>
-      <img className="bg-blue-600 w-full h-[70vh]" src={img} alt="" />
+      <img className="bg-blue-600 w-full h-[70vh] object-" src={img} alt="" />
     </div>
   );
 };

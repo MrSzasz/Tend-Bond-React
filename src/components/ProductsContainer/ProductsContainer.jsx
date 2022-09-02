@@ -1,6 +1,7 @@
 import NewArrivalsCard from "../NewArrivalsCard/NewArrivalsCard";
 import { AiOutlineLeft, AiOutlineDown } from "react-icons/ai";
 import { GoSettings } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const ProductsContainer = () => {
   let products = [
@@ -8,102 +9,102 @@ const ProductsContainer = () => {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
     {
       name: "producto",
       price: 2500,
       img: "http://placeimg.com/250/390/nature",
-      link: "https://i.pinimg.com/originals/4f/a3/78/4fa3782e5d7c9276d00819a65a0cc83c.jpg",
+      link: "/products",
     },
   ];
 
   return (
     <div className="w-[90%] m-auto flex flex-col pb-6">
-      <div className="w-full flex items-center gap-2 pb-8">
+      <Link to="/" className="w-full flex items-center gap-2 pb-8">
         <AiOutlineLeft />
         <p>
-          <span>HOME</span> | NUEVO
+          <span className="text-gray-500 border-b transition-all duration-tbBase border-transparent hover:border-black" >HOME</span> | NUEVO
         </p>
-      </div>
+      </Link>
       <div>
         <div className="flex items-center gap-1">
           <GoSettings className="rotate-90" />
@@ -118,7 +119,6 @@ const ProductsContainer = () => {
               img={item.img}
               price={item.price}
               title={item.name}
-              link={item.link}
             />
           ))}
         </div>

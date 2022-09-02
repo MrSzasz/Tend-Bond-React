@@ -10,20 +10,20 @@ const MainComponent = () => {
       <MainSections
         text={"lorem y otras cosas que ponemos en el texto de ejemplo"}
         title={"Accesorios"}
-        img={"https://picsum.photos/250/250/?random=1"}
-        link={"https://www.google.com.ar"}
+        img={"http://placeimg.com/700/400/nature"}
+        link={"/products"}
       />
       <MainSections
         text={"lorem y otras cosas que ponemos en el texto de ejemplo"}
         title={"Indumentaria"}
-        img={"https://picsum.photos/250/250/?random=1"}
-        link={"https://www.google.com.ar"}
+        img={"http://placeimg.com/700/400/any"}
+        link={"/products"}
       />
       <MainSections
         text={"lorem y otras cosas que ponemos en el texto de ejemplo"}
         title={"Zapatos"}
-        img={"https://picsum.photos/250/250/?random=1"}
-        link={"https://www.google.com.ar"}
+        img={"http://placeimg.com/700/400/architecture"}
+        link={"/products"}
       />
     </>
   );

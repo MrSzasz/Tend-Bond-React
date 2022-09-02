@@ -32,3 +32,21 @@
 html{
     font-family: tbCaps;
 }
+
+::selection{
+    background-color: #f48f4a;
+    color: black;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border: 1px solid black;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #f48f4a;
+}

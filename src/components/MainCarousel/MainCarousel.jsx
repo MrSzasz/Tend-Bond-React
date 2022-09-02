@@ -15,23 +15,22 @@ const MainCarousel = () => {
         type: "progressbar",
       }}
       autoHeight={true}
-      navigation={true}
       effect="fade"
       loop={true}
       autoplay={true}
       className="mySwiper"
     >
       <SwiperSlide className="mainSwiperSlide">
-        <SlideMainCarousel img="http://placeimg.com/500/200/nature"/>
+        <SlideMainCarousel img="http://placeimg.com/500/500/nature"/>
       </SwiperSlide>
       <SwiperSlide className="mainSwiperSlide">
-        <SlideMainCarousel img="http://placeimg.com/500/200/architecture"/>
+        <SlideMainCarousel img="http://placeimg.com/500/500/architecture"/>
       </SwiperSlide>
       <SwiperSlide className="mainSwiperSlide">
-        <SlideMainCarousel img="http://placeimg.com/500/200/animals"/>
+        <SlideMainCarousel img="http://placeimg.com/500/500/animals"/>
       </SwiperSlide>
       <SwiperSlide className="mainSwiperSlide">
-        <SlideMainCarousel img="http://placeimg.com/500/200/people"/>
+        <SlideMainCarousel img="http://placeimg.com/500/500/people"/>
       </SwiperSlide>
     </Swiper>
   );

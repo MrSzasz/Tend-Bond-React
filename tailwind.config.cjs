@@ -19,7 +19,6 @@ module.exports = {
         tbTitles: ['tbTitles', 'tbTitles'],
         tbCaps: ['tbCaps', 'tbCaps'],
       },
-
     }
   },
   plugins: [],

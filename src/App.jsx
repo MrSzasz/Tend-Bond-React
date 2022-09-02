@@ -3,15 +3,23 @@ import Footer from "./components/Footer/Footer";
 import MainContainer from "./components/MainContainer/MainContainer";
 import NavBar from "./components/NavBar/NavBar";
 import WhatsappFAB from "./components/WhatsappFAB/WhatsappFAB";
+import { Routes, Route, Navigate } from "react-router-dom";
+import ProductsContainer from "./components/ProductsContainer/ProductsContainer";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
 
 function App() {
-
   return (
     <div>
-      <NavBar/>
-      <MainContainer/>
-      <WhatsappFAB/>
-      <Footer/>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<MainContainer />} />
+        <Route path="/products" element={<ProductsContainer />} />
+        <Route path="/products/detalle" element={<ProductDetails />} />
+        <Route path="/*" element={<Navigate to="/" replace />} />
+      </Routes>
+      {/* <MainContainer /> */}
+      <WhatsappFAB />
+      <Footer />
     </div>
   );
 }

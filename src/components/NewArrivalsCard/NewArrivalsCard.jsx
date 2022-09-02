@@ -1,14 +1,16 @@
 import { AiOutlineHeart } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import MainButton from "../MainButton/MainButton";
 
-const NewArrivalsCard = ({ img, title, price, link }) => {
+const NewArrivalsCard = ({ img, title, price }) => {
   return (
     <div className="relative min-h-min h-min">
       <AiOutlineHeart className="absolute top-1 right-1" />
       <div className="relative min-h-min min-w-min group overflow-hidden cursor-pointer">
         <img className="object-cover min-w-full" src={img} alt="" />
-        <a href={link} className="flex justify-center items-center transition-all duration-500 group-hover:top-0 group-hover:visible invisible h-full overflow-hidden bg-tbMain w-full py-2 absolute top-full right-0 font-bold text-white text-2xl opacity-90">
+        <Link to="/products/detalle" className="flex justify-center items-center transition-all duration-500 group-hover:top-0 group-hover:visible invisible h-full overflow-hidden bg-tbMain w-full py-2 absolute top-full right-0 font-bold text-white text-2xl opacity-90">
           Ver más
-        </a>
+        </Link>
       </div>
       <figcaption className="flex flex-col place-content-start w-full">
         <p className="w-max text-sm">{title}</p>
