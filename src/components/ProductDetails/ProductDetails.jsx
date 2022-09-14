@@ -1,30 +1,20 @@
-import ProductsCarousel from "../ProductsCarousel/ProductsCarousel";
-
-import LightGallery from "lightgallery/react";
-
-// import styles
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-thumbnail.css";
-
-// import plugins if you need
-import lgThumbnail from "lightgallery/plugins/thumbnail";
-import lgZoom from "lightgallery/plugins/zoom";
-
 const ProductDetails = () => {
   return (
-    <div>
-      <LightGallery speed={500} plugins={[lgThumbnail, lgZoom]}>
-        <a href="https://i.imgflip.com/3f0mvv.jpg">
-          <img className="w-24 h-24 object-cover" alt="img1" src="https://i.imgflip.com/3f0mvv.jpg" />
-        </a>
-        <a href="https://preview.redd.it/3wabtadfycj41.jpg?auto=webp&s=209cbc600a0335da2b1918007f9912a2bb4835b8">
-          <img className="w-24 h-24 object-cover"  alt="img2" src="https://preview.redd.it/3wabtadfycj41.jpg?auto=webp&s=209cbc600a0335da2b1918007f9912a2bb4835b8" />
-        </a>
-      </LightGallery>
-      <ProductsCarousel title={"También te puede interesar"} />
+    <div className="w-[90%] m-auto h-screen grid grid-cols-2">
+        <div className="bg-blue-500 grid grid-cols-4">
+            <div className="bg-red-500 flex flex-col">
+<img src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheBindingOfIsaacAfterbirthPlus_image1600w.jpg" alt="" />
+<img src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheBindingOfIsaacAfterbirthPlus_image1600w.jpg" alt="" />
+<img src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheBindingOfIsaacAfterbirthPlus_image1600w.jpg" alt="" />
+<img src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheBindingOfIsaacAfterbirthPlus_image1600w.jpg" alt="" />
+<img src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheBindingOfIsaacAfterbirthPlus_image1600w.jpg" alt="" />
+<img src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_TheBindingOfIsaacAfterbirthPlus_image1600w.jpg" alt="" />
+            </div>
+            <div className="bg-purple-400 col-start-2 col-end-5" ></div>
+        </div>
+        <div className="bg-green-500">right</div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductDetails;
+export default ProductDetails

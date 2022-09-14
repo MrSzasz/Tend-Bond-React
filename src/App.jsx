@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar/NavBar";
 import WhatsappFAB from "./components/WhatsappFAB/WhatsappFAB";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProductsContainer from "./components/ProductsContainer/ProductsContainer";
-import ProductDetails from "./components/ProductDetails/ProductDetails";
+import ProductDetailsContainer from "./components/ProductDetailsContainer/ProductDetailsContainer";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainContainer />} />
         <Route path="/products" element={<ProductsContainer />} />
-        <Route path="/products/detalle" element={<ProductDetails />} />
+        <Route path="/products/detalle" element={<ProductDetailsContainer />} />
         <Route path="/*" element={<Navigate to="/" replace />} />
       </Routes>
       {/* <MainContainer /> */}
