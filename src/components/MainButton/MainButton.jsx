@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 
-const MainButton = ({ link }) => {
+const MainButton = ({ link, text = 'Ver más' }) => {
   return (
-    <Link to={link} className="tbBtn mt-3 w-max">Ver más</Link>
+    <Link to={link} className="tbBtn mt-3 w-max">{text}</Link>
   )
 }
 
