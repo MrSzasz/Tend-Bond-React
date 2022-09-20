@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --swiper-navigation-size: 1.5em;
-    --swiper-theme-color: #f48f4a;
-}
+
+
 
 @font-face {
     font-family: tbTitles;
@@ -28,6 +26,13 @@
         @apply text-xl font-bold py-2 ;
     }
 }
+
+@layer base {
+    :root {
+        --swiper-navigation-size: 1.5em;
+        --swiper-theme-color: #f48f4a;
+    }
+  }
 
 .title{
     background-color: #f48f4a;

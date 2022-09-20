@@ -11,6 +11,7 @@ module.exports = {
         tbGray: "#F3F3F3",
         tbGreen:"#4DC247",
         tbLightGrey:"#E8E8E8",
+        tbBackDrop: "rgba(0, 0, 0, 0.4)",
       },
       transitionDuration: {
         tbBase: '.25s'
