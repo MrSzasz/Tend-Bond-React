@@ -2,6 +2,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import { AiOutlineLeft, AiOutlineDown } from "react-icons/ai";
 import { GoSettings } from "react-icons/go";
 import { Link } from "react-router-dom";
+import Filter from "../Filter/Filter";
 
 const ProductsContainer = () => {
   let products = [
@@ -106,6 +107,7 @@ const ProductsContainer = () => {
         </p>
       </Link>
       <div>
+        <Filter/>
         <div className="flex items-center gap-1">
           <GoSettings className="rotate-90" />
           <button className="flex items-center gap-1">
