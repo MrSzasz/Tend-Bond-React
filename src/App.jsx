@@ -6,6 +6,7 @@ import WhatsappFAB from "./components/WhatsappFAB/WhatsappFAB";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProductsContainer from "./components/ProductsContainer/ProductsContainer";
 import ProductDetailsContainer from "./components/ProductDetailsContainer/ProductDetailsContainer";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/products/detalle" element={<ProductDetailsContainer />} />
         <Route path="/*" element={<Navigate to="/" replace />} />
       </Routes>
-      {/* <MainContainer /> */}
+      <Cart/>
       <WhatsappFAB />
       <Footer />
     </div>

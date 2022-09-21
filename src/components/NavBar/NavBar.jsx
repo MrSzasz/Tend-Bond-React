@@ -1,4 +1,3 @@
-import "./NavBar.scss";
 import { RiShoppingBagLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
@@ -9,7 +8,7 @@ const NavBar = () => {
     "flex content-left items-center flex-col gap-2"
   );
   return (
-    <nav className="bg-white flex flex-col justify-center items-center gap-3 pb-2 sticky top-0 z-10 border-b border-[#6D6D6D]">
+    <nav className="bg-white flex flex-col justify-center items-center gap-3 pb-2 sticky top-0 z-10 border-b border-tbDarkGrey">
       <marquee className="bg-tbLightGrey" behavior="scroll" direction="left">
         ENVÍO GRATIS A PARTIR DE $5000
       </marquee>
@@ -62,7 +61,7 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <div className="absolute w-min right-0 flex gap-2 m-4">
+        <div className="absolute w-min right-0 flex items-center gap-2 m-4">
           <div className="cart">
             <RiShoppingBagLine size={20} />
           </div>
