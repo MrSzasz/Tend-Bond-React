@@ -8,7 +8,7 @@ const NavBar = () => {
     "flex content-left items-center flex-col gap-2"
   );
   return (
-    <nav className="bg-white flex flex-col justify-center items-center gap-3 pb-2 sticky top-0 z-10 border-b border-tbDarkGrey">
+    <nav className="bg-white flex flex-col justify-center items-center gap-3 pb-2 sticky top-0 z-10 border-b-2 border-tbDarkGrey">
       <marquee className="bg-tbLightGrey" behavior="scroll" direction="left">
         ENVÍO GRATIS A PARTIR DE $5000
       </marquee>

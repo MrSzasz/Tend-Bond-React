@@ -99,29 +99,26 @@ const ProductsContainer = () => {
   ];
 
   return (
-    <div className="w-[90%] m-auto flex flex-col pb-6">
+    <div className="w-[90%] relative m-auto flex flex-col pb-6">
       <Link to="/" className="w-fit flex items-center gap-2 pb-8">
         <AiOutlineLeft />
         <p>
-          <span className="text-gray-500 border-b transition-all duration-tbBase border-transparent hover:border-black" >HOME</span> | NUEVO
+          <span className="text-gray-500 border-b transition-all duration-tbBase border-transparent hover:border-black">
+            HOME
+          </span>{" "}
+          | NUEVO
         </p>
       </Link>
+      <Filter />
       <div>
-        <Filter/>
         <div className="flex items-center gap-1">
           <GoSettings className="rotate-90" />
-          <button className="flex items-center gap-1">
-            Filtros
-          </button>
+          <button className="flex items-center gap-1">Filtros</button>
         </div>
         <h2 className="tbTitleStyles">New arrivals</h2>
         <div className="grid grid-cols-5 gap-3">
           {products.map((item) => (
-            <ProductCard
-              img={item.img}
-              price={item.price}
-              title={item.name}
-            />
+            <ProductCard img={item.img} price={item.price} title={item.name} />
           ))}
         </div>
       </div>

@@ -1,47 +1,88 @@
+import "./Filter.scss";
+
 import { BsCircleFill } from "react-icons/bs";
+import { GrClose } from "react-icons/gr";
 import MainButton from "../MainButton/MainButton";
 
 const Filter = () => {
   return (
-    <div className="w-1/4 fixed left-0 bg-white h-full z-10 hidden">
-        <button>X</button>
-      <h2>Categorías</h2>
-      <div className="flex flex-col">
-        <div>
-          <input type="radio" name="filters" id="wrist" />
-          <label htmlFor="wrist">Pulseras</label>
-        </div>
-        <div>
-          <input type="radio" name="filters" id="earing" />
-          <label htmlFor="earing">Aros</label>
-        </div>
-        <div>
-          <input type="radio" name="filters" id="ring" />
-          <label htmlFor="ring">Anillos</label>
-        </div>
-        <div>
-          <input type="radio" name="filters" id="purse" />
-          <label htmlFor="purse">Carteras</label>
-        </div>
-      </div>
-      <h2>Color</h2>
+    <div className="min-w-min max-w-1/4 fixed left-0 bg-white h-full z-10 p-4 flex flex-col gap-3 hidden">
+      <button className="absolute top-1 right-1"><GrClose color="#6D6D6D"/></button>
       <div>
-        <BsCircleFill />
-        <BsCircleFill />
-        <BsCircleFill />
-        <BsCircleFill />
-        <BsCircleFill />
-        <BsCircleFill />
-        <BsCircleFill />
-        <BsCircleFill />
+        <h2 className="pb-2">CATEGORÍA</h2>
+        <div className="flex flex-col gap-2">
+          <label
+            className="labelContainer flex content-center h-6 items-center text-tbDarkGrey text-sm"
+            htmlFor="wrist"
+          >
+            <p className="h-full">Pulseras</p>
+            <input type="radio" name="filters" id="wrist" />
+            <span className="check"></span>
+          </label>
+          <label
+            className="labelContainer h-6 items-center flex content-center text-tbDarkGrey text-sm"
+            htmlFor="earing"
+          >
+            Aros
+            <input type="radio" name="filters" id="earing" />
+            <span className="check"></span>
+          </label>
+          <label
+            className="labelContainer h-6 items-center flex content-center text-tbDarkGrey text-sm"
+            htmlFor="ring"
+          >
+            Anillos
+            <input type="radio" name="filters" id="ring" />
+            <span className="check"></span>
+          </label>
+          <label
+            className="labelContainer h-6 items-center flex content-center text-tbDarkGrey text-sm"
+            htmlFor="purse"
+          >
+            Carteras
+            <input type="radio" name="filters" id="purse" />
+            <span className="check"></span>
+          </label>
+        </div>
       </div>
-      <h2>Talle</h2>
       <div>
-        <button>S</button>
-        <button>M</button>
-        <button>L</button>
+        <h2 className="pb-2">COLOR</h2>
+        <div className="colorContainer grid grid-cols-4 gap-4 w-fit">
+          <button>
+            <BsCircleFill size={23} color="#8A566D" />
+          </button>
+          <button>
+            <BsCircleFill size={23} color="#6D6D6D" />
+          </button>
+          <button>
+            <BsCircleFill size={23} color="#0087A5" />
+          </button>
+          <button>
+            <BsCircleFill size={23} color="#F48F4A" />
+          </button>
+          <button>
+            <BsCircleFill size={23} color="#000000" />
+          </button>
+          <button>
+            <BsCircleFill size={23} color="#ffffff" />
+          </button>
+          <button>
+            <BsCircleFill size={23} color="#FFC49B" />
+          </button>
+          <button>
+            <BsCircleFill size={23} color="#5b5b5b" />
+          </button>
+        </div>
       </div>
-      <MainButton link='#' text='Aplicar filtros'/>
+      <div className="pb-9">
+        <h2 className="pb-2">TALLE</h2>
+        <div className="w-full flex gap-4">
+          <button className="underline">S</button>
+          <button>M</button>
+          <button>L</button>
+        </div>
+      </div>
+      <MainButton link="#" text="Aplicar filtros" />
     </div>
   );
 };
