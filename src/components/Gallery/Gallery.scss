@@ -2,7 +2,7 @@ $ig-small-screen: 768px !default;
 $ig-xsmall-screen: 480px !default;
 $ig-white: #fff !default;
 $ig-black: #000 !default;
-$ig-blue: #337ab7 !default;
+$ig-blue: #f48f4a !default;
 $ig-background-black: rgba(0, 0, 0, .4) !default;
 $ig-transparent: rgba(0, 0, 0, 0) !default;
 $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
@@ -26,9 +26,18 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   z-index: 4;
   filter: drop-shadow($ig-shadow);
 
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       color: $ig-blue;
+
       .image-gallery-svg {
         transform: scale(1.1);
       }
@@ -53,6 +62,13 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 .image-gallery-play-button {
   bottom: 0;
   padding: 20px;
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
 
   .image-gallery-svg {
     height: 28px;
@@ -125,6 +141,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 .image-gallery-right-nav {
   right: 0;
 }
+
 // End of Icon styles
 
 .image-gallery {
@@ -141,7 +158,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     right: 0;
     top: 0;
     width: 100%;
-    z-index: 5;
+    z-index: 50;
 
     .image-gallery-content {
       top: 50%;
@@ -183,6 +200,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
       width: calc(100% - 87px); // 81px + 6px for margin
     }
   }
+
   &.image-gallery-rtl {
     direction: rtl;
   }
@@ -306,6 +324,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   &.thumbnails-wrapper-rtl {
     direction: rtl;
   }
+
   &.left,
   &.right {
     display: inline-block;
@@ -329,7 +348,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
         margin-right: 0;
         padding: 0;
 
-        + .image-gallery-thumbnail {
+        +.image-gallery-thumbnail {
           margin-left: 0;
           margin-top: 2px;
         }
@@ -378,7 +397,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
     width: 81px;
   }
 
-  + .image-gallery-thumbnail {
+  +.image-gallery-thumbnail {
     margin-left: 2px;
   }
 
@@ -449,5 +468,15 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
   @media(max-width: $ig-small-screen) {
     font-size: .8em;
     padding: 5px 10px;
+  }
+}
+
+.image-gallery-thumbnails {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

@@ -4,7 +4,7 @@ import { FiSearch } from "react-icons/fi";
 const SearchBar = () => {
   return (
     <div className="flex gap-2 items-center h-full">
-      <label className="peer-focus-visible:text-tbMain cursor-pointer" for="browser">
+      <label className="peer-focus-visible:text-tbMain cursor-pointer" htmlFor="browser">
         <FiSearch className="" size={20} />
       </label>
       <input

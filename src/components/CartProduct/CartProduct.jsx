@@ -28,7 +28,7 @@ const CartProduct = () => {
               type="number"
               name="qty"
               id="cartQty"
-              value={1}
+              defaultValue={1}
             />
             <button>+</button>
           </div>

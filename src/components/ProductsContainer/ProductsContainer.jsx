@@ -117,8 +117,8 @@ const ProductsContainer = () => {
         </div>
         <h2 className="tbTitleStyles">New arrivals</h2>
         <div className="grid grid-cols-5 gap-3">
-          {products.map((item) => (
-            <ProductCard img={item.img} price={item.price} title={item.name} />
+          {products.map((item, i) => (
+            <ProductCard key={i} img={item.img} price={item.price} title={item.name} />
           ))}
         </div>
       </div>

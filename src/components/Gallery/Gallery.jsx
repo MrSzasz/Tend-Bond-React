@@ -4,35 +4,35 @@ import "./Gallery.scss";
 const Gallery = () => {
   const images = [
     {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
+      original: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
+      thumbnail: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
     },
     {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
+      original: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
+      thumbnail: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
     },
     {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
+      original: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
+      thumbnail: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
     },
     {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
+      original: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
+      thumbnail: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
     },
     {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
+      original: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
+      thumbnail: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
     },
     {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
+      original: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
+      thumbnail: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
     },
     {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
+      original: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
+      thumbnail: "https://i.etsystatic.com/19774945/r/il/003d74/2369328865/il_794xN.2369328865_hws2.jpg",
     },
   ];
-  return <ReactImageGallery items={images} thumbnailPosition={"left"} infinite={true} showNav={false} useBrowserFullscreen={false} showPlayButton={false} />;
+  return <ReactImageGallery items={images} thumbnailPosition={"left"} infinite={false} showNav={false} useBrowserFullscreen={false} showPlayButton={false} disableThumbnailScroll={true}/>;
 };
 
 export default Gallery;

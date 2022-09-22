@@ -13,10 +13,10 @@ const Filter = () => {
         <div className="flex flex-col gap-2">
           <label
             className="labelContainer flex content-center h-6 items-center text-tbDarkGrey text-sm"
-            htmlFor="wrist"
+            htmlFor="bracelet"
           >
             <p className="h-full">Pulseras</p>
-            <input type="radio" name="filters" id="wrist" />
+            <input type="radio" name="filters" id="bracelet" />
             <span className="check"></span>
           </label>
           <label
