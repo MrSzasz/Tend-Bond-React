@@ -18,12 +18,19 @@
 
 @layer components {
     .tbBtn {
-        @apply bg-tbMain rounded-full py-1.5 px-16 text-white font-bold tracking-widest transition-all duration-tbBase hover:bg-black ;
-        
+        @apply bg-tbMain rounded-full py-1.5 px-16 text-white font-bold tracking-widest transition-all duration-tbBase hover:bg-black;
     }
 
     .tbMainTitles{
         @apply text-xl font-bold py-2 ;
+    }
+
+    .tbTop{
+        @apply flex items-center flex-col gap-2
+    }
+
+    .tbBottom{
+        @apply flex w-fit content-evenly self-start pl-8 items-center gap-20
     }
 }
 

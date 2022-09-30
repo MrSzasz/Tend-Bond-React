@@ -1,3 +1,4 @@
+import $ from "jquery";
 import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import MainContainer from "./components/MainContainer/MainContainer";
@@ -9,6 +10,10 @@ import ProductDetailsContainer from "./components/ProductDetailsContainer/Produc
 import Cart from "./components/Cart/Cart";
 
 function App() {
+  const showCart = () => {
+    $('#blurCart').fadeToggle();
+    $("#modalCartContainer").slideToggle();
+  };
   return (
     <div>
       <NavBar />
@@ -18,7 +23,7 @@ function App() {
         <Route path="/products/detalle" element={<ProductDetailsContainer />} />
         <Route path="/*" element={<Navigate to="/" replace />} />
       </Routes>
-      <Cart/>
+      <Cart showCart={showCart}/>
       <WhatsappFAB />
       <Footer />
     </div>

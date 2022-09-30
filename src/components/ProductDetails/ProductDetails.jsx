@@ -1,6 +1,5 @@
 import Gallery from "../Gallery/Gallery";
 import { BsCircleFill } from "react-icons/bs";
-import { AiOutlineDown } from "react-icons/ai";
 import MainButton from "../MainButton/MainButton";
 
 const ProductDetails = () => {
@@ -55,19 +54,31 @@ const ProductDetails = () => {
           </div>
           <div className="desc">
             <h5 className="text-sm">DESCRIPCIÓN</h5>
-            <p className="text-xs">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro in
-            nobis repellat. Iure quisquam voluptatem nesciunt earum eum ex
-            mollitia.</p>
+            <p className="text-xs">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro in
+              nobis repellat. Iure quisquam voluptatem nesciunt earum eum ex
+              mollitia.
+            </p>
           </div>
         </div>
-        <MainButton link={'#'} text={"Agregar al carrito"} />
-        <div className="flex flex-col gap-1">
-          <button className="flex items-center gap-1 text-sm">
-            CUIDADOS Y COMPOSICIÓN <AiOutlineDown size={13} />
-          </button>
-          <button className="flex items-center gap-1 text-sm">
-            POLÍTICA DE DEVOLUCIÓN <AiOutlineDown size={13} />
-          </button>
+        <MainButton link={"#"} text={"Agregar al carrito"} />
+        <div className="flex flex-col gap-3">
+          <details className="cursor-pointer">
+            <summary className="text-sm">CUIDADOS Y COMPOSICIÓN</summary>
+            <p className="cursor-default text-xs">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro in
+              nobis repellat. Iure quisquam voluptatem nesciunt earum eum ex
+              mollitia.
+            </p>
+          </details>
+          <details className="cursor-pointer">
+            <summary className="text-sm">POLÍTICA DE DEVOLUCIÓN</summary>
+            <p className="cursor-default text-xs">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro in
+              nobis repellat. Iure quisquam voluptatem nesciunt earum eum ex
+              mollitia.
+            </p>
+          </details>
         </div>
       </div>
     </div>
