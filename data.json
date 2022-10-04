@@ -1,0 +1,685 @@
+[
+    {
+        "name": "Jarrón Olimpia",
+        "description": "Jarrón de cerámica artesanal. Medidas: 24cm x 24cm x 7cm, peso: 850gr.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#6c4675",
+                "name": "Lila"
+            },
+            {
+                "hex": "#FF8000",
+                "name": "Naranja"
+            },
+            {
+                "hex": "#FFFF00",
+                "name": "Amarillo"
+            },
+            {
+                "hex": "#FF0080",
+                "name": "Rosa"
+            },
+            {
+                "hex": "#F4F4F4",
+                "name": "Blanco Mate"
+            }
+        ],
+        "sizes": null,
+        "category": "deco",
+        "photos": []
+    },
+    {
+        "name": "Jarrón Electra",
+        "description": "Jarrón de ceramica artesanal. Medidas: 9cm x 17cm x 7cm, peso: 550gr.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#6c4675",
+                "name": "Lila"
+            },
+            {
+                "hex": "#FF8000",
+                "name": "Naranja"
+            },
+            {
+                "hex": "#FFFF00",
+                "name": "Amarillo"
+            },
+            {
+                "hex": "#FF0080",
+                "name": "Rosa"
+            },
+            {
+                "hex": "#F4F4F4",
+                "name": "Blanco Mate"
+            }
+        ],
+        "sizes": null,
+        "category": "deco",
+        "photos": []
+    },
+    {
+        "name": "Jarrón Curvado",
+        "description": "Jarrón de ceramica artesanal. Medidas: 22cm x 16cm x 6cm, peso: 650gr.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#CBC3E3",
+                "name": "Lila y rosa"
+            },
+            {
+                "hex": "#ECD7D4",
+                "name": "Rosa y piedra"
+            },
+            {
+                "hex": "#F6CAC0",
+                "name": "Amarillo y rosa"
+            },
+            {
+                "hex": "#FF8000",
+                "name": "Naranja"
+            },
+            {
+                "hex": "#6c4675",
+                "name": "Lila"
+            },
+            {
+                "hex": "#B7B09C",
+                "name": "Piedra"
+            },
+            {
+                "hex": "#FF0080",
+                "name": "Rosa"
+            }
+        ],
+        "sizes": null,
+        "category": "deco",
+        "photos": []
+    },
+    {
+        "name": "Cuenco Amsterdam",
+        "description": "Cuenco de ceramica, esmaltado en acuarelas y esmalte libre de plomo. Medidas: 11cm x 23cm. Apto para microondas y lavavajillas.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#E6E6FA",
+                "name": "Lavanda"
+            },
+            {
+                "hex": "#FF0000",
+                "name": "Acuarelas"
+            }
+        ],
+        "sizes": null,
+        "category": "deco",
+        "photos": []
+    },
+    {
+        "name": "Cuenco Praga",
+        "description": "Cuenco de ceramica, esmaltado en acuarelas y esmalte libre de plomo. Medidas: 7cm x 15cm. Apto para microondas y lavavajillas.",
+        "price": null,
+        "colors": null,
+        "sizes": null,
+        "category": "deco",
+        "photos": []
+    },
+    {
+        "name": "Anillo Cromo",
+        "description": "Anillo hecho a mano. Confeccionado en alpaca bañado en plata.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            }
+        ],
+        "sizes": [
+            {
+                "value": "14/15"
+            },
+            {
+                "value": "17/18"
+            },
+            {
+                "value": "20/21"
+            }
+        ],
+        "category": "rings",
+        "photos": []
+    },
+    {
+        "name": "Anillo Forma",
+        "description": "Anillo hecho a mano. Confeccionado en alpaca bañado en plata o bronce.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": [
+            {
+                "value": "14/15"
+            },
+            {
+                "value": "17/18"
+            },
+            {
+                "value": "20/21"
+            }
+        ],
+        "category": "rings",
+        "photos": []
+    },
+    {
+        "name": "Anillo Espiral",
+        "description": "Anillo hecho a mano. Confeccionado en alpaca bañado en plata o bronce.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": [
+            {
+                "value": "14/15"
+            },
+            {
+                "value": "17/18"
+            },
+            {
+                "value": "20/21"
+            }
+        ],
+        "category": "rings",
+        "photos": []
+    },
+    {
+        "name": "Anillo Sharp",
+        "description": "Anillo hecho a mano. Confeccionado en alpaca bañado en plata o bronce.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": [
+            {
+                "value": "14/15"
+            },
+            {
+                "value": "17/18"
+            },
+            {
+                "value": "20/21"
+            }
+        ],
+        "category": "rings",
+        "photos": []
+    },
+    {
+        "name": "Aros Artemisa",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Atenea",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Iris",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Hera",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Juno",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Venus",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Neftis",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Babel",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Brooklyn",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Boston",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Dubai",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Galileo",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Kenia",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Maui",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Milán",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Sáhara",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Santos",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Sidney",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Wellington",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros York",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Alejandría",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Alda",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Grecia",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros India",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    },
+    {
+        "name": "Aros Mali",
+        "description": "Aros artesanales, confeccionados alpaca bañados en plata o confeccionados en bronce. Cuentan con el perforador en plata para mayor higiene y seguridad.",
+        "price": null,
+        "colors": [
+            {
+                "hex": "#C0C0C0",
+                "name": "Plata"
+            },
+            {
+                "hex": "#FFD700",
+                "name": "Dorado"
+            }
+        ],
+        "sizes": null,
+        "category": "earings",
+        "photos": []
+    }
+]
