@@ -32,6 +32,9 @@
     .tbBottom{
         @apply flex w-fit content-evenly self-start pl-8 items-center gap-20
     }
+    .tbDisabled{
+        @apply pointer-events-none text-gray-400
+    }
 }
 
 @layer base {

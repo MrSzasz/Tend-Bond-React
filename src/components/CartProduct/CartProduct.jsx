@@ -1,4 +1,5 @@
 import "./CartProduct.scss";
+import QtyCounter from "../QtyCounter/QtyCounter"
 
 import { BiTrash } from "react-icons/bi";
 
@@ -21,17 +22,7 @@ const CartProduct = () => {
         </div>
         <div>
           <p className="text-xs text-tbDarkGrey">Cantidad</p>
-          <div className="flex border border-tbDarkGrey w-1/3 h-7 p-1 items-center rounded-full">
-            <button>-</button>
-            <input
-              className="qtyInputOnCart w-full text-center text-sm h-min"
-              type="number"
-              name="qty"
-              id="cartQty"
-              defaultValue={1}
-            />
-            <button>+</button>
-          </div>
+          <QtyCounter />
         </div>
       </div>
       <span className="absolute text-sm text-tbMain bottom-1 right-1">

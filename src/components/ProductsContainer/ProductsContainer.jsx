@@ -2,102 +2,35 @@ import ProductCard from "../ProductCard/ProductCard";
 import $ from "jquery";
 import { AiOutlineLeft } from "react-icons/ai";
 import { GoSettings } from "react-icons/go";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Filter from "../Filter/Filter";
+import { useState } from "react";
+import { useEffect } from "react";
+import Loading from "../Loading/Loading";
 
 const ProductsContainer = () => {
-  let products = [
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-    {
-      name: "producto",
-      price: 2500,
-      img: "http://placeimg.com/250/390/nature",
-      link: "/products",
-    },
-  ];
+  const [filteredProductsArray, letFilteredProductsArray] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const { cat } = useParams();
+
+  const getProducts = () => {
+    const url = "../data.json";
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) =>
+        letFilteredProductsArray(
+          res.filter((product) => product.category === cat)
+        )
+      )
+      .finally(setLoading(false));
+  };
+
+  // ==========  fn GET DATA  ========== //
+
+  useEffect(() => {
+    getProducts();
+  }, [cat]);
 
   const show = () => {
     $("#modalProductsFilterContainer").slideToggle();
@@ -124,16 +57,22 @@ const ProductsContainer = () => {
           <button className="flex items-center gap-1">Filtros</button>
         </div>
         <h2 className="tbTitleStyles">New arrivals</h2>
-        <div className="grid grid-cols-5 gap-3">
-          {products.map((item, i) => (
-            <ProductCard
-              key={i}
-              img={item.img}
-              price={item.price}
-              title={item.name}
-            />
-          ))}
-        </div>
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="min-h-[60vh] relative grid grid-cols-5 gap-3">
+            {filteredProductsArray.map((item, i) => (
+              <ProductCard
+                key={i}
+                img={item.photos[0].link}
+                // price={item.price}
+                title={item.name}
+                // id={item.id}
+                id={1}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

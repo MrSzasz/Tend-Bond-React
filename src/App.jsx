@@ -19,8 +19,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<MainContainer />} />
-        <Route path="/products" element={<ProductsContainer />} />
-        <Route path="/products/detalle" element={<ProductDetailsContainer />} />
+        <Route path="/products/:cat" element={<ProductsContainer />} />
+        <Route path="/products/detalle/:id" element={<ProductDetailsContainer />} />
         <Route path="/*" element={<Navigate to="/" replace />} />
       </Routes>
       <Cart showCart={showCart}/>

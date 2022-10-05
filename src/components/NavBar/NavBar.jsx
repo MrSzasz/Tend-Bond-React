@@ -51,38 +51,34 @@ const NavBar = () => {
               <Link
                 to="/"
                 className="border-b transition-all duration-tbBase border-transparent hover:border-black"
-                href="#"
               >
                 INICIO
               </Link>
             </li>
             <li>
               <Link
-                to="/products"
+                to="/products/deco"
                 className="border-b transition-all duration-tbBase border-transparent hover:border-black"
-                href="#"
               >
                 DECORACIÓN
               </Link>
             </li>
             <li>
               <Link
-                to="/products"
+                to="/products/accesorios"
                 className="border-b transition-all duration-tbBase border-transparent hover:border-black"
-                href="#"
               >
                 ACCESORIOS
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/products"
                 className="border-b transition-all duration-tbBase border-transparent hover:border-black"
-                href="#"
               >
                 NOSOTROS
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="absolute w-min right-0 flex items-center gap-2 m-4 cursor-pointer">
