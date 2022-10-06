@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const QtyCounter = () => {
+const QtyCounter = ({initialValue = 1}) => {
   const [value, setValue] = useState(1);
 
   const addToCounter = () => {
@@ -21,7 +21,7 @@ const QtyCounter = () => {
       <p
         className="qtyInputOnCart w-full text-center text-sm h-min focus-visible:outline-none"
       >
-        {value}
+        {initialValue}
       </p>
       <button onClick={addToCounter}>+</button>
     </div>
