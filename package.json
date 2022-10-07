@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.5",
     "bootstrap": "^5.2.0",
+    "firebase": "^9.11.0",
     "jquery": "^3.6.1",
     "lightgallery": "^2.6.0",
     "react": "^18.2.0",
@@ -17,6 +19,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-image-gallery": "^1.2.9",
+    "react-redux": "^8.0.4",
     "react-router-dom": "^6.3.0",
     "sass": "^1.54.5",
     "swiper": "^8.3.2"

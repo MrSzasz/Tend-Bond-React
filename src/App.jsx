@@ -8,12 +8,17 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import ProductsContainer from "./components/ProductsContainer/ProductsContainer";
 import ProductDetailsContainer from "./components/ProductDetailsContainer/ProductDetailsContainer";
 import Cart from "./components/Cart/Cart";
+import { useSelector } from "react-redux";
 
 function App() {
   const showCart = () => {
     $('#blurCart').fadeToggle();
     $("#modalCartContainer").slideToggle();
   };
+
+  const cart = useSelector(state => state.cartSlice)
+  console.log(cart)
+  
   return (
     <div>
       <NavBar />

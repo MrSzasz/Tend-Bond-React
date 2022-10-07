@@ -3,8 +3,24 @@ import MainButton from "../MainButton/MainButton";
 import ProductColors from "../ProductColors/ProductColors";
 import ProductSizes from "../ProductSizes/ProductSizes";
 import QtyCounter from "../QtyCounter/QtyCounter";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../features/cart/cartSlice";
 
 const ProductDetails = ({ product }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    console.log('hola');
+    const product = {
+      id,
+      name, 
+      qty, 
+      price, 
+      
+    }
+    // dispatch(addToCart(product));
+  }
+
   return (
     <div className="w-[90%] m-auto h-fit grid grid-cols-2 gap-8 py-4">
       <div className="h-full flex items-center">
@@ -29,7 +45,7 @@ const ProductDetails = ({ product }) => {
             <p className="text-xs pt-3">{product.description}</p>
           </div>
         </div>
-        <MainButton link={"#"} text={"Agregar al carrito"} />
+        <MainButton fn={handleAddToCart} text={"Agregar al carrito"} />
         <div className="flex flex-col gap-3">
           <details className="cursor-pointer">
             <summary className="text-sm">CUIDADOS Y COMPOSICIÓN</summary>

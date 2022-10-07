@@ -3,9 +3,16 @@ import "./Cart.scss";
 import CartProduct from "../CartProduct/CartProduct";
 import EmptyCart from "../EmptyCart/EmptyCart";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import cartSlice from "../../features/cart/cartSlice";
 
 const Cart = ({ showCart }) => {
-  const [cart, setCart] = useState([]);
+  const [cartFromState, setCartFromState] = useState([]);
+
+
+  const cart = useSelector(state => state.cartSlice)
+  console.log(cart)
+
   return (
     <div
       id="blurCart"
@@ -17,7 +24,7 @@ const Cart = ({ showCart }) => {
       >
         <h2 className="text-sm font-bold">CARRITO</h2>
         <div className="cartProductsContainer flex flex-col h-4/5">
-          {cart.length === 0 ? (
+          {cartFromState.length !== 0 ? (
             <EmptyCart />
           ) : (
             <>
@@ -30,7 +37,7 @@ const Cart = ({ showCart }) => {
           )}
         </div>
         <div className="flex flex-col gap-2">
-          {cart.length !== 0 && (
+          {cartFromState.length !== 0 && (
             <MainButton link={"#"} text={"Pedir por Whatsapp"} />
           )}
           <button className="text-tbMain text-sm" onClick={showCart}>
