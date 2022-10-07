@@ -6,25 +6,25 @@ const MainComponent = () => {
   return (
     <>
       <MainCarousel />
-      <ProductsCarousel title="New arrivals" />
+      {/* <ProductsCarousel title="New arrivals" /> */}
       <MainSections
         text={"lorem y otras cosas que ponemos en el texto de ejemplo"}
-        title={"Accesorios"}
-        img={"http://placeimg.com/700/400/nature"}
-        link={"/products"}
+        title={"Decoración"}
+        img={"https://i.imgur.com/o4OcFYC.jpg"}
+        link={"/products/deco"}
       />
       <MainSections
         text={"lorem y otras cosas que ponemos en el texto de ejemplo"}
-        title={"Indumentaria"}
-        img={"http://placeimg.com/700/400/any"}
-        link={"/products"}
+        title={"Anillos"}
+        img={"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQI6l0AgxfPSyTF4qum4019sQ9Y1txjpVH5RekuJjQH6Gwr2oHiOlJ_nFH81RzYoqxxh6fORDvP_Vg1odIj3Wbp8JlxHvIAB_7sJUF8lrR6ff1sfJH5-jQEuw&usqp=CAE"}
+        link={"/products/accesorios"}
       />
-      <MainSections
+      {/* <MainSections
         text={"lorem y otras cosas que ponemos en el texto de ejemplo"}
-        title={"Zapatos"}
+        title={"Aros"}
         img={"http://placeimg.com/700/400/architecture"}
-        link={"/products"}
-      />
+        link={"/products/accesorios"}
+      /> */}
     </>
   );
 };

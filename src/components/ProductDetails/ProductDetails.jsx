@@ -48,14 +48,6 @@ const ProductDetails = ({ product }) => {
         <MainButton fn={handleAddToCart} text={"Agregar al carrito"} />
         <div className="flex flex-col gap-3">
           <details className="cursor-pointer">
-            <summary className="text-sm">CUIDADOS Y COMPOSICIÓN</summary>
-            <p className="cursor-default text-xs">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro in
-              nobis repellat. Iure quisquam voluptatem nesciunt earum eum ex
-              mollitia.
-            </p>
-          </details>
-          <details className="cursor-pointer">
             <summary className="text-sm">POLÍTICA DE DEVOLUCIÓN</summary>
             <p className="cursor-default text-xs">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro in

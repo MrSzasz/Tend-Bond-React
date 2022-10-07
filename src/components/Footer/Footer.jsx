@@ -29,7 +29,7 @@ const Footer = () => {
         </FooterCard>
       </div>
       <div className="bg-tbMain text-white">
-        <a>Links</a>
+        <a href="https://linktr.ee/trendbonddesignteam" target="_blank">Links</a>
       </div>
     </footer>
   );
