@@ -20,7 +20,7 @@ const Cart = ({ showCart }) => {
     >
       <div
         id="modalCartContainer"
-        className="bg-white w-1/4 h-screen fixed right-0 top-0 z-[55] flex flex-col p-4 justify-between hidden"
+        className="bg-white w-full sm:w-2/4 lg:w-2/4 xl:w-1/4 h-screen fixed right-0 top-0 z-[55] flex flex-col p-4 justify-between hidden"
       >
         <h2 className="text-sm font-bold">CARRITO</h2>
         <div className="cartProductsContainer flex flex-col h-4/5">

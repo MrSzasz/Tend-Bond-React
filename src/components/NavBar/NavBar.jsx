@@ -1,8 +1,9 @@
 import $ from "jquery";
 import { RiShoppingBagLine } from "react-icons/ri";
+import { GrMenu } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
   // const [classForNav, setClassForNav] = useState(
@@ -23,21 +24,50 @@ const NavBar = () => {
 
   $(window).scroll(function (event) {
     let scroll = $(window).scrollTop();
-    if (scroll > 200) {
-      $("#navContainer").removeClass("tbTop");
-      $("#navContainer").addClass("tbBottom");
-    } else if (scroll < 200) {
-      $("#navContainer").removeClass("tbBottom");
-      $("#navContainer").addClass("tbTop");
+    let wScreen = $(window).width();
+    if (wScreen >= 700) {
+      if (scroll > 200) {
+        $("#navContainer").removeClass("tbTop");
+        $("#navContainer").addClass("tbBottom");
+      } else if (scroll < 200) {
+        $("#navContainer").removeClass("tbBottom");
+        $("#navContainer").addClass("tbTop");
+      }
     }
   });
 
+  const changeNavOnWidth = () => {
+    let wScreen = $(window).width();
+    let navUl = $("#navUl");
+    let searchNavBar = $("#searchNavBar");
+
+    if (wScreen <= 400) {
+      navUl.hide().addClass("flex-col h-[50vh] justify-evenly text-center");
+      searchNavBar.hide().removeClass("absolute");
+      $("#menuButton").on("click", () => {
+        navUl.slideToggle();
+        searchNavBar.slideToggle();
+      });
+      $(".linkMenu").on("click", () => {
+        navUl.slideToggle();
+        searchNavBar.slideToggle();
+      });
+    }
+  };
+
+  useEffect(() => {
+    changeNavOnWidth();
+  }, []);
+
   return (
     <nav className="bg-white flex flex-col justify-center items-center gap-3 pb-2 sticky top-0 z-10 border-b-2 border-tbDarkGrey">
-      <marquee className="bg-tbLightGrey" behavior="scroll" direction="left">
+      <div
+        className="bg-tbMain w-full text-xs text-center"
+        behavior="scroll"
+        direction="left"
+      >
         ENVÍO GRATIS A PARTIR DE $5000
-      </marquee>
-      {/* <div className={classForNav}> */}
+      </div>
       <div id="navContainer" className="tbTop">
         <Link
           to="/"
@@ -45,12 +75,18 @@ const NavBar = () => {
         >
           Trend Bond
         </Link>
+        <span
+          id="menuButton"
+          className="flex gap-2 items-center cursor-pointer xs:hidden"
+        >
+          MENU <GrMenu />
+        </span>
         <div className="w-full">
-          <ul className="flex gap-8 font-tbCaps">
+          <ul id="navUl" className="flex gap-8 font-tbCaps">
             <li>
               <Link
                 to="/"
-                className="border-b transition-all duration-tbBase border-transparent hover:border-black"
+                className="linkMenu border-b transition-all duration-tbBase border-transparent hover:border-black"
               >
                 INICIO
               </Link>
@@ -58,7 +94,7 @@ const NavBar = () => {
             <li>
               <Link
                 to="/products/deco"
-                className="border-b transition-all duration-tbBase border-transparent hover:border-black"
+                className="linkMenu border-b transition-all duration-tbBase border-transparent hover:border-black"
               >
                 DECORACIÓN
               </Link>
@@ -66,7 +102,7 @@ const NavBar = () => {
             <li>
               <Link
                 to="/products/accesorios"
-                className="border-b transition-all duration-tbBase border-transparent hover:border-black"
+                className="linkMenu border-b transition-all duration-tbBase border-transparent hover:border-black"
               >
                 ACCESORIOS
               </Link>
@@ -81,7 +117,11 @@ const NavBar = () => {
             </li> */}
           </ul>
         </div>
-        <div className="absolute w-min right-0 flex items-center gap-2 m-4 cursor-pointer">
+        {/* <div className="absolute w-min right-0 flex items-center gap-2 m-4 cursor-pointer"> */}
+        <div
+          id="searchNavBar"
+          className="absolute w-min right-0 flex items-center gap-2 m-4 cursor-pointer"
+        >
           <div className="cart" onClick={showCart}>
             <RiShoppingBagLine size={20} />
           </div>

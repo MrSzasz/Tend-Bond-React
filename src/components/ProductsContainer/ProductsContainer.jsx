@@ -44,7 +44,7 @@ const ProductsContainer = () => {
           <span className="text-gray-500 border-b transition-all duration-tbBase border-transparent hover:border-black">
             HOME
           </span>{" "}
-          | NUEVO
+          | <span className="uppercase">{cat}</span>
         </p>
       </Link>
       {/* <Filter show={show} /> */}
@@ -53,14 +53,14 @@ const ProductsContainer = () => {
           className="flex items-center gap-1 w-fit cursor-pointer border-b border-b-transparent transition-all duration-tbBase hover:border-black"
           onClick={show}
         >
-          <GoSettings className="rotate-90" />
-          <button className="flex items-center gap-1">Filtros</button>
+          {/* <GoSettings className="rotate-90" /> */}
+          {/* <button className="flex items-center gap-1">Filtros</button> */}
         </div>
         <h2 className="tbTitleStyles">New arrivals</h2>
         {loading ? (
           <Loading />
         ) : (
-          <div className="min-h-[60vh] relative grid grid-cols-5 gap-3">
+          <div className="min-h-[60vh] relative grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
             {filteredProductsArray.map((item, i) => (
               <ProductCard
                 key={i}

@@ -22,7 +22,7 @@ const ProductDetails = ({ product }) => {
   }
 
   return (
-    <div className="w-[90%] m-auto h-fit grid grid-cols-2 gap-8 py-4">
+    <div className="w-[90%] m-auto h-fit flex flex-col md:grid md:grid-cols-2 gap-8 py-4">
       <div className="h-full flex items-center">
         <Gallery />
       </div>
