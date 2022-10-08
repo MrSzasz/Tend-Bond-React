@@ -10,7 +10,7 @@ const MainSections = ({title, text, link, img}) => {
         </p>
         <MainButton link={link} />
       </div>
-      <img className="bg-blue-600 w-full h-[70vh] object-cover" src={img} alt="" referrerpolicy="no-referrer"/>
+      <img className="bg-blue-600 w-full h-[70vh] object-cover" src={img} alt=""/>
     </div>
   );
 };

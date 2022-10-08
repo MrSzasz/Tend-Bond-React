@@ -13,7 +13,7 @@ const QtyCounter = ({ initialValue = 1 }) => {
 
   useEffect(() => {
     setValue(initialValue);
-  }, []);
+  }, [initialValue]);
 
   return (
     <div className="flex w-14 h-7 p-1 items-center rounded-full">

@@ -8,8 +8,8 @@ const ProductSizes = ({ product }) => {
           id="sizesSelect"
           className="text-xs text-tbDarkGrey bg-white"
         >
-          {product.sizes.map((size) => (
-            <option value={size.value}>{size.value}</option>
+          {product.sizes.map((size, i) => (
+            <option key={i} value={size.value}>{size.value}</option>
           ))}
         </select>
       </div>

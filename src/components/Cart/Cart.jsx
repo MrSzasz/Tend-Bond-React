@@ -5,13 +5,15 @@ import EmptyCart from "../EmptyCart/EmptyCart";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import cartSlice from "../../features/cart/cartSlice";
+import { useEffect } from "react";
 
 const Cart = ({ showCart }) => {
   const [cartFromState, setCartFromState] = useState([]);
+  const cartArray = useSelector((state) => state.cartSlice);
 
-
-  const cart = useSelector(state => state.cartSlice)
-  console.log(cart)
+  useEffect(() => {
+    setCartFromState(cartArray);
+  }, [cartArray]);
 
   return (
     <div
@@ -24,15 +26,22 @@ const Cart = ({ showCart }) => {
       >
         <h2 className="text-sm font-bold">CARRITO</h2>
         <div className="cartProductsContainer flex flex-col h-4/5">
-          {cartFromState.length !== 0 ? (
+          {cartFromState.length === 0 ? (
             <EmptyCart />
           ) : (
             <>
-              <CartProduct />
-              <CartProduct />
-              <CartProduct />
-              <CartProduct />
-              <CartProduct />
+              {cartFromState.map((product, i) => (
+                <CartProduct
+                  key={product.id}
+                  id={product.id}
+                  img={product.img.link}
+                  name={product.name}
+                  size={product.size}
+                  color={product.color}
+                  qty={product.qty}
+                  price={product.price}
+                />
+              ))}
             </>
           )}
         </div>

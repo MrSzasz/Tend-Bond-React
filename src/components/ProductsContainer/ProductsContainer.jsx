@@ -7,6 +7,13 @@ import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import Loading from "../Loading/Loading";
+import {
+  getDocs,
+  getFirestore,
+  collection,
+  where,
+  query,
+} from "firebase/firestore";
 
 const ProductsContainer = () => {
   const [filteredProductsArray, letFilteredProductsArray] = useState([]);
@@ -14,22 +21,29 @@ const ProductsContainer = () => {
 
   const { cat } = useParams();
 
-  const getProducts = () => {
-    const url = "../data.json";
-    fetch(url)
-      .then((res) => res.json())
+  const getProductsFromFirebase = async () => {
+    const db = getFirestore();
+
+    const queryCollection = collection(db, "Products");
+
+    const queryCollectionFiltered = query(
+      queryCollection,
+      where("category", "==", cat)
+    );
+
+    await getDocs(queryCollectionFiltered)
       .then((res) =>
         letFilteredProductsArray(
-          res.filter((product) => product.category === cat)
+          res.docs.map((item) => ({ ...item.data(), id: item.id }))
         )
       )
-      .finally(setLoading(false));
+      .finally(() => setLoading(false));
   };
 
   // ==========  fn GET DATA  ========== //
 
   useEffect(() => {
-    getProducts();
+    getProductsFromFirebase();
   }, [cat]);
 
   const show = () => {
@@ -52,10 +66,7 @@ const ProductsContainer = () => {
         <div
           className="flex items-center gap-1 w-fit cursor-pointer border-b border-b-transparent transition-all duration-tbBase hover:border-black"
           onClick={show}
-        >
-          {/* <GoSettings className="rotate-90" /> */}
-          {/* <button className="flex items-center gap-1">Filtros</button> */}
-        </div>
+        ></div>
         <h2 className="tbTitleStyles">New arrivals</h2>
         {loading ? (
           <Loading />
@@ -65,10 +76,9 @@ const ProductsContainer = () => {
               <ProductCard
                 key={i}
                 img={item.photos[0].link}
-                // price={item.price}
+                price={item.price}
                 title={item.name}
-                // id={item.id}
-                id={1}
+                id={item.id}
               />
             ))}
           </div>

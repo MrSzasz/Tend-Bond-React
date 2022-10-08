@@ -20,7 +20,7 @@ const Footer = () => {
           <AiFillInstagram color="#F48F4A" size={30} />
         </FooterCard>
         <Divider/>
-        <FooterCard name={"Mail"} data={"mail@trendbond.com"}>
+        <FooterCard name={"Mail"} data={"trendbondarg@gmail.com"}>
           <IoMdMail color="#F48F4A" size={30} />
         </FooterCard>
         <Divider/>

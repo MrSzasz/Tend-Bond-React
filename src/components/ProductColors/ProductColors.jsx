@@ -33,7 +33,6 @@ const ProductColors = ({ product }) => {
     const radioButton = $("input[type=radio][name=colorSelect]");
     radioButton.on("change", () => {
       setColorValue($("input[type=radio][name=colorSelect]:checked").val());
-      console.log(colorValue);
     });
   };
 
@@ -50,8 +49,8 @@ const ProductColors = ({ product }) => {
     <div>
       <h2 className="pb-2 text-sm">COLOR: {colorValue}</h2>
       <div className="colorContainer flex gap-4 w-fit">
-        {product.colors.map((color) => (
-          <div className="flex">
+        {product.colors.map((color, i) => (
+          <div className="flex" key={i}>
             <input
               className="peer fixed opacity-0 pointer-events-none"
               type="radio"

@@ -1,11 +1,14 @@
-import MainComponent from "../MainComponent/MainComponent"
+
+import MainComponent from "../MainComponent/MainComponent";
+
 
 const MainContainer = () => {
+
   return (
     <main className="min-h-screen h-min bg-white">
-        <MainComponent/>
+      <MainComponent />
     </main>
-  )
-}
+  );
+};
 
-export default MainContainer
+export default MainContainer;

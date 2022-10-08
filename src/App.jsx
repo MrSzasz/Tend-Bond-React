@@ -17,7 +17,6 @@ function App() {
   };
 
   const cart = useSelector(state => state.cartSlice)
-  console.log(cart)
   
   return (
     <div>
