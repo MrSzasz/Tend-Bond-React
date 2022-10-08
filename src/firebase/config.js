@@ -1,4 +1,6 @@
-import { initializeApp } from "firebase/app";
+import {
+  initializeApp
+} from "firebase/app";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_APP_APIKEY,
@@ -11,6 +13,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export default function getFirestoreApp(){
-    return app
+export default function getFirestoreApp() {
+  return app
 }

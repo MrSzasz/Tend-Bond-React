@@ -1,30 +1,62 @@
 import $ from "jquery";
 import Gallery from "../Gallery/Gallery";
-import MainButton from "../MainButton/MainButton";
 import ProductColors from "../ProductColors/ProductColors";
 import ProductSizes from "../ProductSizes/ProductSizes";
 import QtyCounter from "../QtyCounter/QtyCounter";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
-import { useState } from "react";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { useEffect } from "react";
+
+
+
+
+
 
 const ProductDetails = ({ product }) => {
+
+
+
+
+
+
+
   const dispatch = useDispatch();
 
-  const handleAddToCart = ( id, color, size, name, qty, price) => {
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const handleAddToCart = (id, name, price) => {
     const productForCart = {
       id,
       name,
       color: $("input[type=radio][name=colorSelect]:checked").val(),
       size: $("select[name=sizesSelect]").val(),
-      qty: $(".qtyInputOnCart").html(),
-      price,
+      qty: Number($(".qtyInputOnCart").html()),
+      price: price * Number($(".qtyInputOnCart").html()),
     };
 
     console.log(productForCart);
     // dispatch(addToCart(product));
   };
+
+  
 
   return (
     <div className="w-[90%] m-auto h-fit flex flex-col md:grid md:grid-cols-2 gap-8 py-4">
@@ -52,14 +84,7 @@ const ProductDetails = ({ product }) => {
         </div>
         <button
           onClick={() =>
-            handleAddToCart(
-              product.id,
-              "red",
-              2,
-              product.name,
-              2,
-              product.price
-            )
+            handleAddToCart(product.id, product.name, product.price )
           }
           className="tbBtn text-center text-sm md:text-lg mt-3 w-full md:w-max"
         >
