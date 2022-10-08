@@ -1,3 +1,4 @@
+import $ from "jquery";
 import Gallery from "../Gallery/Gallery";
 import MainButton from "../MainButton/MainButton";
 import ProductColors from "../ProductColors/ProductColors";
@@ -5,18 +6,23 @@ import ProductSizes from "../ProductSizes/ProductSizes";
 import QtyCounter from "../QtyCounter/QtyCounter";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
+import { useState } from "react";
 
 const ProductDetails = ({ product }) => {
   const dispatch = useDispatch();
 
-  const handleAddToCart = () => {
-    console.log("hola");
-    const product = {
+  const handleAddToCart = ( id, color, size, name, qty, price) => {
+  
+    const productForCart = {
       id,
       name,
-      qty,
+      color: $("input[type=radio][name=colorSelect]:checked").val(),
+      size: $("select[name=sizesSelect]").val(),
+      qty: $(".qtyInputOnCart").html(),
       price,
     };
+
+    console.log(productForCart);
     // dispatch(addToCart(product));
   };
 
@@ -44,8 +50,21 @@ const ProductDetails = ({ product }) => {
             <p className="text-xs pt-3">{product.description}</p>
           </div>
         </div>
-        <MainButton fn={handleAddToCart} text={"Agregar al carrito"} />
-        
+        <button
+          onClick={() =>
+            handleAddToCart(
+              product.id,
+              "red",
+              2,
+              product.name,
+              2,
+              product.price
+            )
+          }
+          className="tbBtn text-center text-sm md:text-lg mt-3 w-full md:w-max"
+        >
+          Agregar al carrito
+        </button>
       </div>
     </div>
   );

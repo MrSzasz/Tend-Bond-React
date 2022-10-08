@@ -16,7 +16,7 @@ const Footer = () => {
           <IoLogoWhatsapp color="#F48F4A" size={30} />
         </FooterCard>
         <Divider/>
-        <FooterCard name={"Instagram"} data={"@Instagram"} link="https://instagram.com/trendbond?igshid=NzNkNDdiOGI=">
+        <FooterCard name={"Instagram"} data={"@trendbond"} link="https://instagram.com/trendbond?igshid=NzNkNDdiOGI=">
           <AiFillInstagram color="#F48F4A" size={30} />
         </FooterCard>
         <Divider/>
@@ -24,7 +24,7 @@ const Footer = () => {
           <IoMdMail color="#F48F4A" size={30} />
         </FooterCard>
         <Divider/>
-        <FooterCard name={"Twitter"} data={"@twitter"} link="https://twitter.com/trendbondarg?s=21&t=BcUUqxx0o7lKL5Ei3ezbtA">
+        <FooterCard name={"Twitter"} data={"@TrendBondArg"} link="https://twitter.com/trendbondarg?s=21&t=BcUUqxx0o7lKL5Ei3ezbtA">
           <BsTwitter color="#F48F4A" size={30} />
         </FooterCard>
       </div>
