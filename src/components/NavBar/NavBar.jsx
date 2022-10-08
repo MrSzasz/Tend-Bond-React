@@ -66,7 +66,7 @@ const NavBar = () => {
         behavior="scroll"
         direction="left"
       >
-        ENVÍO GRATIS A PARTIR DE $5000
+        ENVÍO GRATIS A PARTIR DE $7500
       </div>
       <div id="navContainer" className="tbTop">
         <Link
@@ -99,14 +99,14 @@ const NavBar = () => {
                 DECORACIÓN
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/products/accesorios"
                 className="linkMenu border-b transition-all duration-tbBase border-transparent hover:border-black"
               >
                 ACCESORIOS
               </Link>
-            </li>
+            </li> */}
             {/* <li>
               <Link
                 to="/products"

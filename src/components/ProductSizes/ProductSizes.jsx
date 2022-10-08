@@ -1,11 +1,17 @@
-const ProductSizes = ({product}) => {
+const ProductSizes = ({ product }) => {
   return (
     <div>
       <h2 className="pb-2 text-sm">TALLE</h2>
       <div className="w-full flex gap-4">
-        {product.sizes.map((size) => (
-          <button className="text-xs text-tbDarkGrey">{size.value}</button>
-        ))}
+        <select
+          name="sizesSelect"
+          id="sizesSelect"
+          className="text-xs text-tbDarkGrey bg-white"
+        >
+          {product.sizes.map((size) => (
+            <option value={size.value}>{size.value}</option>
+          ))}
+        </select>
       </div>
     </div>
   );

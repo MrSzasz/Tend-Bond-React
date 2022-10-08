@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const QtyCounter = ({initialValue = 1}) => {
+const QtyCounter = ({ initialValue = 1 }) => {
   const [value, setValue] = useState(1);
 
   const addToCounter = () => {
@@ -11,6 +11,10 @@ const QtyCounter = ({initialValue = 1}) => {
     value >= 1 && setValue(value - 1);
   };
 
+  useEffect(() => {
+    setValue(initialValue);
+  }, []);
+
   return (
     <div className="flex w-14 h-7 p-1 items-center rounded-full">
       {value === 1 ? (
@@ -18,10 +22,8 @@ const QtyCounter = ({initialValue = 1}) => {
       ) : (
         <button onClick={subtractToCounter}>-</button>
       )}
-      <p
-        className="qtyInputOnCart w-full text-center text-sm h-min focus-visible:outline-none"
-      >
-        {initialValue}
+      <p className="qtyInputOnCart w-full text-center text-sm h-min focus-visible:outline-none">
+        {value}
       </p>
       <button onClick={addToCounter}>+</button>
     </div>

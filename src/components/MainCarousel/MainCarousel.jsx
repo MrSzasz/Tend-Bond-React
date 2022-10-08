@@ -24,11 +24,11 @@ const MainCarousel = () => {
         <SlideMainCarousel img="https://i.imgur.com/EWUxkQY.jpg" link={"products/deco"}/>
       </SwiperSlide>
       <SwiperSlide className="mainSwiperSlide">
-        <SlideMainCarousel img="https://ae01.alicdn.com/kf/HTB1kX2MsntYBeNjy1Xdq6xXyVXag/Acrylic-flower-Pot-Iron-Plant-Holders-Set-Indoor-Hanging-Planter-Geometric-Vase-Wall-Decor-Container-Succulents.jpg" link={"products/deco"}/>
+        <SlideMainCarousel img="https://i.imgur.com/3euHQc4.jpg" link={"products/deco"}/>
       </SwiperSlide>
-      <SwiperSlide className="mainSwiperSlide">
+      {/* <SwiperSlide className="mainSwiperSlide">
         <SlideMainCarousel img="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQI6l0AgxfPSyTF4qum4019sQ9Y1txjpVH5RekuJjQH6Gwr2oHiOlJ_nFH81RzYoqxxh6fORDvP_Vg1odIj3Wbp8JlxHvIAB_7sJUF8lrR6ff1sfJH5-jQEuw&usqp=CAE" link={"products/accesorios"}/>
-      </SwiperSlide>
+      </SwiperSlide> */}
       {/* <SwiperSlide className="mainSwiperSlide">
         <SlideMainCarousel img="http://placeimg.com/500/500/people"/>
       </SwiperSlide> */}

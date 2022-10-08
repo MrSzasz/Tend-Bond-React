@@ -13,12 +13,12 @@ const MainComponent = () => {
         img={"https://i.imgur.com/D0Qtsy0.jpg"}
         link={"/products/deco"}
       />
-      <MainSections
+      {/* <MainSections
         text={"Accesorios para complementar y darle onda a todos tus looks"}
         title={"Accesorios"}
         img={"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQI6l0AgxfPSyTF4qum4019sQ9Y1txjpVH5RekuJjQH6Gwr2oHiOlJ_nFH81RzYoqxxh6fORDvP_Vg1odIj3Wbp8JlxHvIAB_7sJUF8lrR6ff1sfJH5-jQEuw&usqp=CAE"}
         link={"/products/accesorios"}
-      />
+      /> */}
       {/* <MainSections
         text={"lorem y otras cosas que ponemos en el texto de ejemplo"}
         title={"Aros"}

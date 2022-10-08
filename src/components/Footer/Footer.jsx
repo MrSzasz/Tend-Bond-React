@@ -12,11 +12,11 @@ const Footer = () => {
     <footer className="footer flex flex-col gap-3 pt-2 text-center bg-tbGray font-tbCaps">
       <h4 className="font-bold text-lg">CONTACTATE CON NOSOTROS</h4>
       <div className="flex lg:gap-6 justify-center p-6 py-6">
-        <FooterCard name={"Whatsapp"} data={1133225544}>
+        <FooterCard name={"Whatsapp"} data={"+54 9 3855 03-7253"} link="https://wa.me/+5493855037253">
           <IoLogoWhatsapp color="#F48F4A" size={30} />
         </FooterCard>
         <Divider/>
-        <FooterCard name={"Instagram"} data={"@Instagram"}>
+        <FooterCard name={"Instagram"} data={"@Instagram"} link="https://instagram.com/trendbond?igshid=NzNkNDdiOGI=">
           <AiFillInstagram color="#F48F4A" size={30} />
         </FooterCard>
         <Divider/>
@@ -24,7 +24,7 @@ const Footer = () => {
           <IoMdMail color="#F48F4A" size={30} />
         </FooterCard>
         <Divider/>
-        <FooterCard name={"Twitter"} data={"@twitter"}>
+        <FooterCard name={"Twitter"} data={"@twitter"} link="https://twitter.com/trendbondarg?s=21&t=BcUUqxx0o7lKL5Ei3ezbtA">
           <BsTwitter color="#F48F4A" size={30} />
         </FooterCard>
       </div>
