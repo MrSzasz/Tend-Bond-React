@@ -6,11 +6,16 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import cartSlice, { buyCart } from "../../features/cart/cartSlice";
 import { useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const Cart = ({ showCart }) => {
   const [cartFromState, setCartFromState] = useState([]);
   const cartArray = useSelector((state) => state.cartSlice);
   const dispatch = useDispatch();
+
+  const notify = () => toast.success("¡Perfecto! Será redireccionado en unos segundos...", {
+    id: 'buyToast',
+  });
 
   useEffect(() => {
     setCartFromState(cartArray);
@@ -38,11 +43,14 @@ const Cart = ({ showCart }) => {
     };
 
     let msg = start + concatFn(cartArray) + end;
-    window.location.href = msg;
+    setTimeout(() => {
+      window.location.href = msg;
+    }, 3000);
   };
 
   const handleBuy = () => {
     createWspMsg();
+    notify();
     // dispatch(buyCart());
   };
 

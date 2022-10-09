@@ -5,12 +5,17 @@ import ProductSizes from "../ProductSizes/ProductSizes";
 import QtyCounter from "../QtyCounter/QtyCounter";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
-
+import toast, { Toaster } from "react-hot-toast";
 
 const ProductDetails = ({ product, photos }) => {
   const dispatch = useDispatch();
 
+  const addToCartToast = () => toast("¡Producto agregado correctamente!", {
+    id: 'addToCartToast',
+  });
+
   const handleAddToCart = (id, img, name, price) => {
+    addToCartToast();
     const productForCart = {
       id,
       img,
@@ -61,7 +66,12 @@ const ProductDetails = ({ product, photos }) => {
           Agregar al carrito
         </button>
       </div>
-      {/* <button onClick={handleDb}>database</button> */}
+      <Toaster
+        toastOptions={{
+          className: "bg-green-500 text-white text-center",
+          duration: 3000,
+        }}
+      />
     </div>
   );
 };
