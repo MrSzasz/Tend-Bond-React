@@ -12,7 +12,7 @@ const ProductCard = ({ img, title, price, id }) => {
         </Link>
       </div>
       <figcaption className="flex flex-col place-content-start w-full">
-        <p className="w-max text-sm">{title}</p>
+        <p className="w-fit text-sm">{title}</p>
         <p className="w-min text-tbMain text-sm">{price}</p>
       </figcaption>
     </div>

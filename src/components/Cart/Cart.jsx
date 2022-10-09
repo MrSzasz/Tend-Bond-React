@@ -34,7 +34,7 @@ const Cart = ({ showCart }) => {
                 <CartProduct
                   key={product.id}
                   id={product.id}
-                  img={product.img.link}
+                  img={product.img.original}
                   name={product.name}
                   size={product.size}
                   color={product.color}
@@ -47,7 +47,7 @@ const Cart = ({ showCart }) => {
         </div>
         <div className="flex flex-col gap-2">
           {cartFromState.length !== 0 && (
-            <MainButton link={"#"} text={"Pedir por Whatsapp"} />
+            <MainButton fn={handleBuy} link={"#"} text={"Pedir por Whatsapp"} />
           )}
           <button className="text-tbMain text-sm" onClick={showCart}>
             Seguir comprando

@@ -21,13 +21,12 @@ const ProductDetails = ({ product, photos }) => {
       price: price,
     };
     dispatch(addToCart(productForCart));
-
   };
 
   return (
     <div className="w-[90%] m-auto h-fit flex flex-col md:grid md:grid-cols-2 gap-8 py-4">
       <div className="h-full flex items-center">
-        <Gallery />
+        <Gallery photos={photos} />
       </div>
       <div className="flex flex-col gap-4">
         <div>
@@ -50,13 +49,19 @@ const ProductDetails = ({ product, photos }) => {
         </div>
         <button
           onClick={() =>
-            handleAddToCart(product.id, product.photos[0], product.name, product.price)
+            handleAddToCart(
+              product.id,
+              product.photos[0],
+              product.name,
+              product.price
+            )
           }
           className="tbBtn text-center text-sm md:text-lg mt-3 w-full md:w-max"
         >
           Agregar al carrito
         </button>
       </div>
+      {/* <button onClick={handleDb}>database</button> */}
     </div>
   );
 };

@@ -24,7 +24,7 @@ const ProductsContainer = () => {
   const getProductsFromFirebase = async () => {
     const db = getFirestore();
 
-    const queryCollection = collection(db, "Products");
+    const queryCollection = collection(db, "ProductList");
 
     const queryCollectionFiltered = query(
       queryCollection,
@@ -37,7 +37,7 @@ const ProductsContainer = () => {
           res.docs.map((item) => ({ ...item.data(), id: item.id }))
         )
       )
-      .finally(() => setLoading(false));
+      .finally(() => setLoading(false),console.log(filteredProductsArray));
   };
 
   // ==========  fn GET DATA  ========== //
@@ -75,7 +75,7 @@ const ProductsContainer = () => {
             {filteredProductsArray.map((item, i) => (
               <ProductCard
                 key={i}
-                img={item.photos[0].link}
+                img={item.photos[0].original}
                 price={item.price}
                 title={item.name}
                 id={item.id}

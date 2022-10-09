@@ -15,7 +15,7 @@ const ProductDetailsContainer = () => {
   const getOneProductFromFirebase = async () => {
     const db = getFirestore();
 
-    const dbQuery = doc(db, "Products", id);
+    const dbQuery = doc(db, "ProductList", id);
 
     getDoc(dbQuery)
       .then((res) => {
@@ -37,7 +37,7 @@ const ProductDetailsContainer = () => {
         <Loading />
       ) : (
         <>
-          <ProductDetails product={selectedProduct} />
+          <ProductDetails photos={selectedProduct.photos} product={selectedProduct} />
           <ProductsCarousel title={"También te puede interesar"} />
         </>
       )}

@@ -46,3 +46,4 @@ const CartProduct = ({ img, id, name, size, color, qty, price }) => {
 };
 
 export default CartProduct;
+
