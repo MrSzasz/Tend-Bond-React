@@ -23,7 +23,7 @@ const CartProduct = ({ img, id, name, size, color, qty, price }) => {
         <BiTrash size={15} />
       </button>
       <img
-        className="w-[100px] h-[120px] object-contain"
+        className="w-[100px] h-[120px] object-contain m-4"
         src={img}
         alt={`Imagen ${name}`}
       />
@@ -34,8 +34,8 @@ const CartProduct = ({ img, id, name, size, color, qty, price }) => {
           <p className="text-xs text-tbDarkGrey">Color: {color}</p>
         </div>
         <div>
-          <p className="text-xs text-tbDarkGrey">Cantidad</p>
-          <QtyCounter initialValue={qty} />
+          <p className="text-xs text-tbDarkGrey">Cantidad: {qty}</p>
+          {/* <QtyCounter initialValue={qty} /> */}
         </div>
       </div>
       <span className="absolute text-sm text-tbMain bottom-1 right-1">

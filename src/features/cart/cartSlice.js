@@ -19,12 +19,16 @@ export const cartSlice = createSlice({
         deleteFromCart: (state, action) => {
             const idOfProduct = state.find(prod => prod.id === action.payload)
             state.splice(state.indexOf(idOfProduct), 1)
-        }
+        },
+        buyCart: (state, action) => {
+            console.log("action => " + action.payload);
+        },
     }
 })
 
 export const {
     addToCart,
-    deleteFromCart
+    deleteFromCart,
+    buyCart
 } = cartSlice.actions
 export default cartSlice.reducer;

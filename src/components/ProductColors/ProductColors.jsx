@@ -48,7 +48,7 @@ const ProductColors = ({ product }) => {
   return (
     <div>
       <h2 className="pb-2 text-sm">COLOR: {colorValue}</h2>
-      <div className="colorContainer flex gap-4 w-fit">
+      <div className="colorContainer flex flex-wrap gap-4 w-fit">
         {product.colors.map((color, i) => (
           <div className="flex" key={i}>
             <input

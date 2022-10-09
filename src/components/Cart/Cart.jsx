@@ -3,17 +3,48 @@ import "./Cart.scss";
 import CartProduct from "../CartProduct/CartProduct";
 import EmptyCart from "../EmptyCart/EmptyCart";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import cartSlice from "../../features/cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import cartSlice, { buyCart } from "../../features/cart/cartSlice";
 import { useEffect } from "react";
 
 const Cart = ({ showCart }) => {
   const [cartFromState, setCartFromState] = useState([]);
   const cartArray = useSelector((state) => state.cartSlice);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setCartFromState(cartArray);
   }, [cartArray]);
+
+  const total = cartArray.reduce(
+    (accumulator, item) => (accumulator += item.price * item.qty),
+    0
+  );
+
+  const createWspMsg = () => {
+    const start =
+      "https://api.whatsapp.com/send/?phone=543855037253&text=Orden+de+compra+🛍%0A%0A";
+
+    const end = `%0ATotal%3A+$${total} +💸&type=phone_number&app_absent=0`;
+
+    const concatFn = (array) => {
+      return array
+        .map((item) => {
+          return `🔸+${item.qty}+x+${item.name.replace(" ", "+")}+-+${
+            item.color
+          }${item.size != undefined ? `+-+${item.size}` : ""}%0A`;
+        })
+        .join("");
+    };
+
+    let msg = start + concatFn(cartArray) + end;
+    window.location.href = msg;
+  };
+
+  const handleBuy = () => {
+    createWspMsg();
+    // dispatch(buyCart());
+  };
 
   return (
     <div
@@ -25,7 +56,7 @@ const Cart = ({ showCart }) => {
         className="bg-white w-full sm:w-2/4 lg:w-2/4 xl:w-1/4 h-screen fixed right-0 top-0 z-[55] flex flex-col p-4 justify-between hidden"
       >
         <h2 className="text-sm font-bold">CARRITO</h2>
-        <div className="cartProductsContainer flex flex-col h-4/5">
+        <div className="cartProductsContainer flex flex-col min-h-[70vh] h-fit overflow-y-scroll">
           {cartFromState.length === 0 ? (
             <EmptyCart />
           ) : (
@@ -45,11 +76,16 @@ const Cart = ({ showCart }) => {
             </>
           )}
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col h-fit">
+          {total != 0 && (
+            <p className="text-center w-full">
+              Total: <span className="text-tbMain">${total}</span>
+            </p>
+          )}
           {cartFromState.length !== 0 && (
             <MainButton fn={handleBuy} link={"#"} text={"Pedir por Whatsapp"} />
           )}
-          <button className="text-tbMain text-sm" onClick={showCart}>
+          <button className="text-tbMain text-sm pt-2" onClick={showCart}>
             Seguir comprando
           </button>
         </div>
