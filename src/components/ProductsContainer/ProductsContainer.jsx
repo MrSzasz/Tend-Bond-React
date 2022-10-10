@@ -16,7 +16,7 @@ import {
 } from "firebase/firestore";
 
 const ProductsContainer = () => {
-  const [filteredProductsArray, letFilteredProductsArray] = useState([]);
+  const [filteredProductsArray, setFilteredProductsArray] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { cat } = useParams();
@@ -33,7 +33,7 @@ const ProductsContainer = () => {
 
     await getDocs(queryCollectionFiltered)
       .then((res) =>
-        letFilteredProductsArray(
+        setFilteredProductsArray(
           res.docs.map((item) => ({ ...item.data(), id: item.id }))
         )
       )

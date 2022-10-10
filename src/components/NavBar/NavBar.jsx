@@ -4,22 +4,13 @@ import { GrMenu } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import { useEffect, useState } from "react";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 const NavBar = () => {
-  // const [classForNav, setClassForNav] = useState(
-  //   "flex content-left items-center flex-col gap-2"
-  //   // "flex w-fit content-evenly self-start pl-8 items-center gap-20"
-  // );
+  const [arrayForSearch, setArrayForSearch] = useState([]);
   const showCart = () => {
     $("#blurCart").fadeToggle();
     $("#modalCartContainer").slideToggle();
-  };
-
-  const changeNav = () => {
-    // alert('hola')
-
-    $("#navContainer").toggleClass("tbTop");
-    $("#navContainer").toggleClass("tbBottom");
   };
 
   $(window).scroll(function (event) {
@@ -55,6 +46,28 @@ const NavBar = () => {
     }
   };
 
+  const getNamesFromFirebase = async () => {
+    const db = getFirestore();
+
+    const queryCollection = collection(db, "ProductList");
+
+    const queryCollectionFiltered = query(
+      queryCollection,
+      where("category", "==", 'deco')
+    );
+
+    await getDocs(queryCollectionFiltered).then((res) =>
+      res.docs.map((item) => ({ ...item.data(), id: item.id }))
+    )
+    .then((res) => res.map((item) => ({value: item.name, key: item.id})))
+    .then((res) => setArrayForSearch(res))
+  };
+
+  // ==========  fn GET DATA  ========== //
+
+  useEffect(() => {
+    getNamesFromFirebase();
+  }, []);
   useEffect(() => {
     changeNavOnWidth();
   }, []);
@@ -120,12 +133,15 @@ const NavBar = () => {
         {/* <div className="absolute w-min right-0 flex items-center gap-2 m-4 cursor-pointer"> */}
         <div
           id="searchNavBar"
-          className="absolute w-min right-0 flex items-center gap-2 m-4 cursor-pointer"
+          className="absolute w-min right-0 flex gap-2 m-4 cursor-pointer"
         >
-          <div className="cart" onClick={showCart}>
+          <div
+            className="cart h-[20px] self-auto pt-[0.65rem]"
+            onClick={showCart}
+          >
             <RiShoppingBagLine size={20} />
           </div>
-          <SearchBar />
+          <SearchBar array={arrayForSearch}/>
         </div>
       </div>
     </nav>
