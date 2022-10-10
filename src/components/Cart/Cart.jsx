@@ -25,11 +25,10 @@ const Cart = ({ showCart }) => {
     0
   );
 
-  const createWspMsg = () => {
-    const start =
-      "https://api.whatsapp.com/send/?phone=543855037253&text=Orden+de+compra+🛍%0A%0A";
+  const createWspMsg = (array) => {
+    const start ="https://api.whatsapp.com/send/?phone=543855037253&text=Orden+de+compra+🛍%0A%0A";
 
-    const end = `%0ATotal%3A+$${total} +💸&type=phone_number&app_absent=0`;
+    const end =`%0ATotal%3A+$${total} +💸&type=phone_number&app_absent=0`;
 
     const concatFn = (array) => {
       return array
@@ -41,14 +40,14 @@ const Cart = ({ showCart }) => {
         .join("");
     };
 
-    const msg = start + concatFn(cartArray) + end;
+    const msg = start + concatFn(array) + end;
     setTimeout(() => {
       window.location.href = msg;
     }, 3000);
   };
 
   const handleBuy = () => {
-    createWspMsg();
+    createWspMsg(cartArray);
     notify();
   };
 
