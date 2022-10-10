@@ -3,20 +3,17 @@ import Gallery from "../Gallery/Gallery";
 import ProductColors from "../ProductColors/ProductColors";
 import ProductSizes from "../ProductSizes/ProductSizes";
 import QtyCounter from "../QtyCounter/QtyCounter";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/cart/cartSlice";
 import toast, { Toaster } from "react-hot-toast";
 
 const ProductDetails = ({ product, photos }) => {
   const dispatch = useDispatch();
-  const currentCart = useSelector((state) => state.cartSlice);
 
   const addToCartToast = () =>
     toast("¡Producto agregado correctamente!", {
       id: "addToCartToast",
     });
-
-
 
   const handleAddToCart = (id, img, name, price) => {
     addToCartToast();
@@ -29,9 +26,7 @@ const ProductDetails = ({ product, photos }) => {
       qty: Number($(".qtyInputOnCart").html()),
       price: price,
     };
-
     dispatch(addToCart(productForCart));
-
   };
 
   return (

@@ -1,4 +1,3 @@
-import ProductsCarousel from "../ProductsCarousel/ProductsCarousel";
 import Loading from "../Loading/Loading";
 import ProductDetails from "../ProductDetails/ProductDetails";
 import { useState } from "react";
@@ -19,7 +18,7 @@ const ProductDetailsContainer = () => {
 
     getDoc(dbQuery)
       .then((res) => {
-        setSelectedProduct({ ...res.data(), id: res.id })
+        setSelectedProduct({ ...res.data(), id: res.id });
       })
       .finally(() => setLoading(false));
   };
@@ -30,15 +29,16 @@ const ProductDetailsContainer = () => {
     getOneProductFromFirebase();
   }, []);
 
-
   return (
     <div className="w-full min-h-[70vh] relative overflow-hidden">
       {loading ? (
         <Loading />
       ) : (
         <>
-          <ProductDetails photos={selectedProduct.photos} product={selectedProduct} />
-          <ProductsCarousel title={"También te puede interesar"} />
+          <ProductDetails
+            photos={selectedProduct.photos}
+            product={selectedProduct}
+          />
         </>
       )}
     </div>

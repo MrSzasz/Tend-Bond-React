@@ -1,9 +1,7 @@
 import ProductCard from "../ProductCard/ProductCard";
 import $ from "jquery";
 import { AiOutlineLeft } from "react-icons/ai";
-import { GoSettings } from "react-icons/go";
 import { Link, useParams } from "react-router-dom";
-// import Filter from "../Filter/Filter";
 import { useState } from "react";
 import { useEffect } from "react";
 import Loading from "../Loading/Loading";
@@ -37,7 +35,7 @@ const ProductsContainer = () => {
           res.docs.map((item) => ({ ...item.data(), id: item.id }))
         )
       )
-      .finally(() => setLoading(false),console.log(filteredProductsArray));
+      .finally(() => setLoading(false), console.log(filteredProductsArray));
   };
 
   // ==========  fn GET DATA  ========== //
@@ -61,7 +59,6 @@ const ProductsContainer = () => {
           | <span className="uppercase">{cat}</span>
         </p>
       </Link>
-      {/* <Filter show={show} /> */}
       <div>
         <div
           className="flex items-center gap-1 w-fit cursor-pointer border-b border-b-transparent transition-all duration-tbBase hover:border-black"

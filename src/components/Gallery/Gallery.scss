@@ -62,6 +62,7 @@ $ig-shadow: 0 2px 2px lighten($ig-black, 10%);
 .image-gallery-play-button {
   bottom: 0;
   padding: 20px;
+
   &:focus {
     outline: none;
   }

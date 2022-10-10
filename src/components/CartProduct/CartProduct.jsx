@@ -1,8 +1,7 @@
 import "./CartProduct.scss";
-import QtyCounter from "../QtyCounter/QtyCounter";
 
 import { BiTrash } from "react-icons/bi";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteFromCart } from "../../features/cart/cartSlice";
 import { useState, useEffect } from "react";
 
@@ -10,10 +9,8 @@ const CartProduct = ({ img, id, name, size, color, qty, price }) => {
   const [priceFromQty, setPriceFromQty] = useState();
   const dispatch = useDispatch();
 
-  const cartInRedux = useSelector((state)=> state.cartSlice)
   const handleDelete = () => {
-    dispatch(deleteFromCart(id))
-    // console.log(store.getState());
+    dispatch(deleteFromCart(id));
   };
 
   useEffect(() => {
@@ -37,9 +34,6 @@ const CartProduct = ({ img, id, name, size, color, qty, price }) => {
           <p className="text-xs text-tbDarkGrey">Color: {color}</p>
           <p className="text-xs text-tbDarkGrey">Cantidad: {qty}</p>
         </div>
-        <>
-          {/* <QtyCounter initialValue={qty} /> */}
-        </>
       </div>
       <span className="absolute text-sm text-tbMain bottom-1 right-1">
         ${priceFromQty}
@@ -49,4 +43,3 @@ const CartProduct = ({ img, id, name, size, color, qty, price }) => {
 };
 
 export default CartProduct;
-

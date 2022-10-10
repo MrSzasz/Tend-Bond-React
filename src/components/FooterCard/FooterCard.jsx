@@ -1,5 +1,4 @@
-
-const FooterCard = ({ children, name, data, link="#" }) => {
+const FooterCard = ({ children, name, data, link = "#" }) => {
   return (
     <div className="flex items-center justify-center p-2 lg:min-w-[12em]">
       <a

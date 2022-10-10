@@ -2,16 +2,14 @@ import MainButton from "../MainButton/MainButton";
 import "./Cart.scss";
 import CartProduct from "../CartProduct/CartProduct";
 import EmptyCart from "../EmptyCart/EmptyCart";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import cartSlice, { buyCart } from "../../features/cart/cartSlice";
-import { useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import toast from "react-hot-toast";
 
 const Cart = ({ showCart }) => {
   const [cartFromState, setCartFromState] = useState([]);
   const cartArray = useSelector((state) => state.cartSlice);
-  const dispatch = useDispatch();
 
   const notify = () =>
     toast.success("¡Perfecto! Será redireccionado en unos segundos...", {
@@ -38,22 +36,20 @@ const Cart = ({ showCart }) => {
         .map((item) => {
           return `🔸+${item.qty}+x+${item.name.replace(" ", "+")}+-+${
             item.color
-          }${item.size != undefined ? `+-+${item.size}` : ""}%0A`;
+          }${item.size !== undefined ? `+-+${item.size}` : ""}%0A`;
         })
         .join("");
     };
 
-    let msg = start + concatFn(cartArray) + end;
+    const msg = start + concatFn(cartArray) + end;
     setTimeout(() => {
       window.location.href = msg;
     }, 3000);
   };
 
-
   const handleBuy = () => {
     createWspMsg();
     notify();
-    // dispatch(buyCart());
   };
 
   return (
@@ -87,7 +83,7 @@ const Cart = ({ showCart }) => {
           )}
         </div>
         <div className="flex flex-col h-fit">
-          {total != 0 && (
+          {total !== 0 && (
             <p className="text-center w-full pt-2">
               Total: <span className="text-tbMain">${total}</span>
             </p>

@@ -4,7 +4,13 @@ import { GrMenu } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import { useEffect, useState } from "react";
-import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
 const NavBar = () => {
   const [arrayForSearch, setArrayForSearch] = useState([]);
@@ -53,14 +59,13 @@ const NavBar = () => {
 
     const queryCollectionFiltered = query(
       queryCollection,
-      where("category", "==", 'deco')
+      where("category", "==", "deco")
     );
 
-    await getDocs(queryCollectionFiltered).then((res) =>
-      res.docs.map((item) => ({ ...item.data(), id: item.id }))
-    )
-    .then((res) => res.map((item) => ({value: item.name, key: item.id})))
-    .then((res) => setArrayForSearch(res))
+    await getDocs(queryCollectionFiltered)
+      .then((res) => res.docs.map((item) => ({ ...item.data(), id: item.id })))
+      .then((res) => res.map((item) => ({ value: item.name, key: item.id })))
+      .then((res) => setArrayForSearch(res));
   };
 
   // ==========  fn GET DATA  ========== //
@@ -112,25 +117,8 @@ const NavBar = () => {
                 DECORACIÓN
               </Link>
             </li>
-            {/* <li>
-              <Link
-                to="/products/accesorios"
-                className="linkMenu border-b transition-all duration-tbBase border-transparent hover:border-black"
-              >
-                ACCESORIOS
-              </Link>
-            </li> */}
-            {/* <li>
-              <Link
-                to="/products"
-                className="border-b transition-all duration-tbBase border-transparent hover:border-black"
-              >
-                NOSOTROS
-              </Link>
-            </li> */}
           </ul>
         </div>
-        {/* <div className="absolute w-min right-0 flex items-center gap-2 m-4 cursor-pointer"> */}
         <div
           id="searchNavBar"
           className="absolute w-min right-0 flex gap-2 m-4 cursor-pointer"
@@ -141,7 +129,7 @@ const NavBar = () => {
           >
             <RiShoppingBagLine size={20} />
           </div>
-          <SearchBar array={arrayForSearch}/>
+          <SearchBar array={arrayForSearch} />
         </div>
       </div>
     </nav>

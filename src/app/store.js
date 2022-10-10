@@ -4,9 +4,9 @@ import {
 } from "@reduxjs/toolkit";
 import cartSlicer from "../features/cart/cartSlice";
 import storage from "redux-persist/lib/storage";
-import { persistReducer } from "redux-persist";
-
-
+import {
+    persistReducer
+} from "redux-persist";
 
 const persistConfig = {
     key: "persistentCart",
@@ -14,7 +14,7 @@ const persistConfig = {
 }
 
 const reducer = combineReducers({
-    cartSlice: cartSlicer 
+    cartSlice: cartSlicer
 })
 
 const persistedReducer = persistReducer(persistConfig, reducer)
