@@ -10,7 +10,7 @@ const CartProduct = ({ img, id, name, size, color, qty, price }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteFromCart(id));
+    dispatch(deleteFromCart(color));
   };
 
   useEffect(() => {

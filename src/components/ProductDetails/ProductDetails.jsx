@@ -38,7 +38,7 @@ const ProductDetails = ({ product, photos }) => {
         <div>
           <div className="border-b border-tbMain">
             <h2 className="font-bold text-2xl">{product.name}</h2>
-            <p className="text-tbDarkGrey">$1500</p>
+            <p className="text-tbDarkGrey">${product.price}</p>
           </div>
         </div>
         <div className="productInfo flex flex-col gap-4">
