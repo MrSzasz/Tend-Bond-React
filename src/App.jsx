@@ -8,6 +8,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import ProductsContainer from "./components/ProductsContainer/ProductsContainer";
 import ProductDetailsContainer from "./components/ProductDetailsContainer/ProductDetailsContainer";
 import Cart from "./components/Cart/Cart";
+import FireBaseDash from "./components/FireBaseDash/FireBaseDash";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {
   const showCart = () => {
@@ -26,6 +28,9 @@ function App() {
           element={<ProductDetailsContainer />}
         />
         <Route path="/*" element={<Navigate to="/" replace />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/fbdash" element={<FireBaseDash />} />
+        </Route>
       </Routes>
       <Cart showCart={showCart} />
       <WhatsappFAB />
