@@ -10,6 +10,8 @@ import ProductDetailsContainer from "./components/ProductDetailsContainer/Produc
 import Cart from "./components/Cart/Cart";
 import FireBaseDash from "./components/FireBaseDash/FireBaseDash";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import FireBaseDashAdd from "./components/FireBaseDashAdd/FireBaseDashAdd";
+import FireBaseDashEdit from "./components/FireBaseDashEdit/FireBaseDashEdit";
 
 function App() {
   const showCart = () => {
@@ -28,8 +30,10 @@ function App() {
           element={<ProductDetailsContainer />}
         />
         <Route path="/*" element={<Navigate to="/" replace />} />
-        <Route element={<ProtectedRoute />}>
+        <Route element={<ProtectedRoute user={' '} />}>
           <Route path="/fbdash" element={<FireBaseDash />} />
+          <Route path="/fbdash/add" element={<FireBaseDashAdd />} />
+          <Route path="/fbdash/edit/:prodId" element={<FireBaseDashEdit />} />
         </Route>
       </Routes>
       <Cart showCart={showCart} />
