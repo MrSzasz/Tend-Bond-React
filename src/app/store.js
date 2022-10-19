@@ -13,6 +13,7 @@ import {
     REGISTER,
     persistReducer
 } from "redux-persist";
+import loggedUserSlice from "../features/user/loggedUserSlice";
 
 const persistConfig = {
     key: "persistentCart",
@@ -20,7 +21,8 @@ const persistConfig = {
 }
 
 const reducer = combineReducers({
-    cartSlice: cartSlicer
+    cartSlice: cartSlicer,
+    loggedUser: loggedUserSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, reducer)

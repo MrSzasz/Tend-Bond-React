@@ -12,8 +12,12 @@ import FireBaseDash from "./components/FireBaseDash/FireBaseDash";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import FireBaseDashAdd from "./components/FireBaseDashAdd/FireBaseDashAdd";
 import FireBaseDashEdit from "./components/FireBaseDashEdit/FireBaseDashEdit";
+import FbLogin from "./components/FbLogin/FbLogin";
+import { useSelector } from "react-redux";
 
 function App() {
+  const loggedUser = useSelector((state) => state.loggedUser);
+
   const showCart = () => {
     $("#blurCart").fadeToggle();
     $("#modalCartContainer").slideToggle();
@@ -30,7 +34,8 @@ function App() {
           element={<ProductDetailsContainer />}
         />
         <Route path="/*" element={<Navigate to="/" replace />} />
-        <Route element={<ProtectedRoute user={' '} />}>
+        <Route path="/fblogin" element={<FbLogin />} />
+        <Route element={<ProtectedRoute user={loggedUser.user} />}>
           <Route path="/fbdash" element={<FireBaseDash />} />
           <Route path="/fbdash/add" element={<FireBaseDashAdd />} />
           <Route path="/fbdash/edit/:prodId" element={<FireBaseDashEdit />} />
