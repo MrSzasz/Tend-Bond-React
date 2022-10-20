@@ -22,7 +22,7 @@ const FireBaseDashAdd = () => {
         COLORES: ingresar el nombre de los colores
         <br />
       </p>
-      <ProductEditForm action="AGREGAR"/>
+      <ProductEditForm action="SUBIR A DB"/>
     </div>
   );
 };
