@@ -29,15 +29,6 @@ const ProductEditForm = ({ product, action }) => {
 
   const navigate = useNavigate();
 
-  // const handleBlur = (e) => {
-  //   // console.log(e.target.value);
-  //   e.target.nextElementSibling.src = `${e.target.value}t.png`;
-  // };
-
-  // $("input[name='newProdPhotos']").on("blur", (e) => {
-  //   console.log(e.target.value);
-  // });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -53,9 +44,11 @@ const ProductEditForm = ({ product, action }) => {
     });
 
     $.each($(".generatedSizesContainer"), (i, val) => {
-      sizesForProduct.push({
-        value: val.firstChild.value,
-      });
+      if (val.firstChild) {
+        sizesForProduct.push({
+          value: val.firstChild?.value,
+        });
+      }
     });
 
     $.each($(".generatedPhotosContainer"), (i, val) => {
@@ -70,8 +63,8 @@ const ProductEditForm = ({ product, action }) => {
       description: $("#newProdDesc").val(),
       price: Number($("#newProdPrice").val()),
       colors: colorsForProduct,
-      sizes: sizesForProduct.length === 0 && null,
-      category: $("#newProdDesc").val(),
+      sizes: sizesForProduct.length === 0 ? null : sizesForProduct,
+      category: $("#newProdCat").val(),
       photos: photosForProduct,
     };
 
@@ -82,17 +75,13 @@ const ProductEditForm = ({ product, action }) => {
 
   const handleAddColor = () => {
     $(
-      '<div class="w-full flex text-center items-center generatedColorsContainer"><div class="w-full flex items-center flex-col"><input class="border-2 border-black w-full text-black py-1 px-2 text-center" type="text" name="newProdColors" required /></div><input class="border-2 border-black w-1/6 text-black py-1 px-2 self-end" type="color" name="newProdColorsHex" required /></div>'
+      '<div class="w-full flex text-center items-center generatedInputContainer generatedColorsContainer"><div class="w-full flex items-center flex-col"><input class="border-2 border-black w-full text-black py-1 px-2 text-center" type="text" name="newProdColors" required /></div><input class="border-2 border-black w-1/6 text-black py-1 px-2 self-end" type="color" name="newProdColorsHex" required /></div>'
     ).appendTo("#colorsInputContainer");
-  };
-
-  const handleDeleteInput = (containerId) => {
-    $(`#${containerId} div:last-child`).remove();
   };
 
   const handleAddSize = () => {
     $(
-      '<div class="flex flex-col text-center items-center generatedSizesContainer"><input class="border-2 text-center border-black w-full text-black py-1 px-2" type="text" name="newProdSizes" required /></div>'
+      '<div class="flex flex-col text-center items-center generatedInputContainer generatedSizesContainer"><input class="border-2 text-center border-black w-full text-black py-1 px-2" type="text" name="newProdSizes" required /></div>'
     ).appendTo("#sizesInputContainer");
   };
 
@@ -103,8 +92,12 @@ const ProductEditForm = ({ product, action }) => {
     //   } alt="" /></div>`
     // ).appendTo("#photosInputContainer");
     $(
-      `<div class="flex text-center items-center w-full generatedPhotosContainer"><input class="border-2 text-center border-black w-full text-black py-1 px-2" type="text" name="newProdPhotos" required/></div>`
+      `<div class="flex text-center items-center w-full generatedInputContainer generatedPhotosContainer"><input class="border-2 text-center border-black w-full text-black py-1 px-2" type="text" name="newProdPhotos" required/></div>`
     ).appendTo("#photosInputContainer");
+  };
+
+  const handleDeleteInput = (containerId) => {
+    $(`#${containerId} .generatedInputContainer:last-child`).remove();
   };
 
   return (
@@ -176,56 +169,33 @@ const ProductEditForm = ({ product, action }) => {
         <h2>Colores</h2>
         <div className="w-full flex flex-col gap-2">
           <div className="w-full flex flex-col gap-2" id="colorsInputContainer">
-            {product ? (
-              product.colors.map((color, i) => (
+            <div className="flex text-center items-center w-full flex-col gap-2">
+              {product?.colors.map((color, i) => (
                 <div
-                  className="flex text-center items-center w-full flex-col generatedColorsContainer"
+                  className="w-full flex flex-col text-center items-center generatedColorsContainer generatedInputContainer"
                   key={i}
                 >
-                  <div className="w-full flex text-center items-center">
-                    <div className="w-full flex items-center flex-col">
-                      <input
-                        className="border-2 border-black w-full text-black py-1 px-2 text-center"
-                        type="text"
-                        name="newProdColors"
-                        id="newProdColors"
-                        defaultValue={color.name}
-                        required
-                      />
-                    </div>
-                    <input
-                      className="border-2 border-black w-1/6 text-black py-1 px-2 self-end"
-                      type="color"
-                      name="newProdColorsHex"
-                      id="newProdColorsHex"
-                      defaultValue={color.hex}
-                      required
-                    />
-                  </div>
-                </div>
-              ))
-            ) : (
-              <>
-                <div className="w-full flex text-center items-center generatedColorsContainer">
                   <div className="w-full flex items-center flex-col">
                     <input
                       className="border-2 border-black w-full text-black py-1 px-2 text-center"
                       type="text"
                       name="newProdColors"
                       id="newProdColors"
+                      defaultValue={color.name}
                       required
                     />
                   </div>
                   <input
-                    className="border-2 border-black w-1/6 text-black py-1 px-2 self-end"
+                    className="border-2 border-black w-full text-black py-1 px-2 self-end"
                     type="color"
                     name="newProdColorsHex"
                     id="newProdColorsHex"
+                    defaultValue={color.hex}
                     required
                   />
                 </div>
-              </>
-            )}
+              ))}
+            </div>
           </div>
           <div className="w-full flex gap-2">
             <span
@@ -248,33 +218,19 @@ const ProductEditForm = ({ product, action }) => {
         <h2>Talles</h2>
         <div className="w-full flex flex-col gap-2">
           <div className="w-full flex flex-col gap-2" id="sizesInputContainer">
-            {product ? (
-              <>
-                {product.sizes &&
-                  product.sizes.map((size, i) => (
-                    <div className="flex flex-col text-center items-center w-full generatedSizesContainer">
-                      <input
-                        className="border-2 border-black w-full text-black py-1 px-2 text-center"
-                        type="text"
-                        name="newProdSizes"
-                        id="newProdSizes"
-                        defaultValue={size.value}
-                        required
-                      />
-                    </div>
-                  ))}
-              </>
-            ) : (
-              <div className="flex flex-col text-center items-center generatedSizesContainer">
-                <input
-                  className="border-2 border-black w-full text-black py-1 px-2 text-center"
-                  type="text"
-                  name="newProdSizes"
-                  id="newProdSizes"
-                  required
-                />
-              </div>
-            )}
+            <div className="flex flex-col text-center items-center w-full generatedSizesContainer generatedInputContainer">
+              {product?.sizes &&
+                product.sizes.map((size, i) => (
+                  <input
+                    className="border-2 border-black w-full text-black py-1 px-2 text-center"
+                    type="text"
+                    name="newProdSizes"
+                    id="newProdSizes"
+                    defaultValue={size.value}
+                    required
+                  />
+                ))}
+            </div>
           </div>
           <div className="w-full flex gap-2">
             <span
@@ -297,73 +253,20 @@ const ProductEditForm = ({ product, action }) => {
         <h2>Fotos</h2>
         <div className="w-full flex flex-col gap-2">
           <div className="w-full flex flex-col gap-2" id="photosInputContainer">
-            {product ? (
-              product.photos.map((photo, i) => (
-                // <div
-                //   className="flex text-center items-center w-full generatedPhotosContainer"
-                //   key={i}
-                // >
-                //   <div className="w-full flex items-center flex-col">
-                //     <label htmlFor="newProdPhotos">Link</label>
-                //     <input
-                //       className="border-2 border-black w-full text-black py-1 px-2"
-                //       type="text"
-                //       name="newProdPhotos"
-                //       id="newProdPhotos"
-                //       defaultValue={photo.original}
-                //     />
-                //   </div>
-                //   <img
-                //     className="imgExample h-32 w-32 object-cover"
-                //     src={photo.thumbnail}
-                //     alt=""
-                //   />
-                // </div>
-                <div
-                  className="flex text-center items-center w-full generatedPhotosContainer"
-                  key={i}
-                >
-                  <div className="w-full flex items-center flex-col">
-                    <label htmlFor="newProdPhotos">Link</label>
-                    <input
-                      className="border-2 border-black w-full text-black py-1 px-2 text-center"
-                      type="text"
-                      name="newProdPhotos"
-                      id="newProdPhotos"
-                      defaultValue={photo.original}
-                      required
-                    />
-                  </div>
-                </div>
-              ))
-            ) : (
-              // <div className="flex text-center items-center w-full generatedPhotosContainer">
-              //   <input
-              //     className="border-2 border-black w-full text-black py-1 px-2"
-              //     type="text"
-              //     name="newProdPhotos"
-              //     id="newProdPhotos"
-              //   />
-              //   <img
-              //     className="imgExample h-32 w-32 object-cover"
-              //     src={
-              //       product
-              //         ? photo.thumbnail
-              //         : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
-              //     }
-              //     alt=""
-              //   />
-              // </div>
-              <div className="flex text-center items-center w-full generatedPhotosContainer">
+            {product?.photos.map((photo, i) => (
+              <div
+                className="flex text-center items-center w-full generatedInputContainer generatedPhotosContainer"
+                key={i}
+              >
                 <input
-                  className="border-2 border-black w-full text-black py-1 px-2 text-center"
+                  className="border-2 text-center border-black w-full text-black py-1 px-2"
                   type="text"
                   name="newProdPhotos"
-                  id="newProdPhotos"
+                  defaultValue={photo.original.slice(0, -4)}
                   required
                 />
               </div>
-            )}
+            ))}
           </div>
           <div className="w-full flex gap-2">
             <span
