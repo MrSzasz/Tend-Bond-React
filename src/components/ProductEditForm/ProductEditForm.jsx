@@ -1,5 +1,5 @@
 import $ from "jquery";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ProductEditForm = ({ product, action }) => {
@@ -26,109 +26,85 @@ const ProductEditForm = ({ product, action }) => {
       },
     ],
   });
-  $("#mainButtonAdd").on("click", () => {
-    $("#colorsInputContainer")
-      .append(`<div className="w-full flex items-center flex-col">
-    <label htmlFor="newProdColors">Nombre del color</label>
-    <input
-      className="border-2 border-black w-full text-black py-1 px-2 text-center"
-      type="text"
-      name="newProdColors[]"
-      id="newProdColors"
-      defaultValue={color.name}
-    />
-  </div>
-  <input
-    className="border-2 border-black w-1/6 text-black py-1 px-2 self-end"
-    type="color"
-    name="newProdColors[]"
-    id="newProdColors"
-    defaultValue={color.hex}
-  />
-  </div>`);
-  });
 
   const navigate = useNavigate();
 
-  const handleDeleteColor = () => {};
-  const handleDeleteSize = () => {};
-  const handleDeleteImg = () => {};
+  // const handleBlur = (e) => {
+  //   // console.log(e.target.value);
+  //   e.target.nextElementSibling.src = `${e.target.value}t.png`;
+  // };
+
+  // $("input[name='newProdPhotos']").on("blur", (e) => {
+  //   console.log(e.target.value);
+  // });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // const getProduct = {
-    //   name: $("#newProdName").val(),
-    //   description: $("#newProdDesc").val(),
-    //   price: Number($("#newProdPrice").val()),
-    //   colors: [
-    //     {
-    //       hex: "",
-    //       name: "",
-    //     },
-    //   ],
-    //   sizes: [
-    //     {
-    //       value: "",
-    //     },
-    //   ],
-    //   category: $("#newProdDesc").val(),
-    //   photos: [
-    //     {
-    //       original: "",
-    //       thumbnail: "",
-    //     },
-    //   ],
-    // };
+    let colorsForProduct = [];
+    let sizesForProduct = [];
+    let photosForProduct = [];
 
-    // console.log(getProduct);
+    $.each($(".generatedColorsContainer"), (i, val) => {
+      colorsForProduct.push({
+        hex: val.lastChild.value,
+        name: val.children[0].firstChild.value,
+      });
+    });
+
+    $.each($(".generatedSizesContainer"), (i, val) => {
+      sizesForProduct.push({
+        value: val.firstChild.value,
+      });
+    });
+
+    $.each($(".generatedPhotosContainer"), (i, val) => {
+      photosForProduct.push({
+        original: `${val.firstChild.value}.png`,
+        thumbnail: `${val.firstChild.value}t.png`,
+      });
+    });
+
+    const getProduct = {
+      name: $("#newProdName").val(),
+      description: $("#newProdDesc").val(),
+      price: Number($("#newProdPrice").val()),
+      colors: colorsForProduct,
+      sizes: sizesForProduct.length === 0 && null,
+      category: $("#newProdDesc").val(),
+      photos: photosForProduct,
+    };
+
+    console.log(getProduct);
 
     // navigate("/fbdash");
   };
 
   const handleAddColor = () => {
-    $(`<div class="w-full flex text-center items-center">
-    <div class="w-full flex items-center flex-col">
-      <label htmlFor="newProdColors">Nombre del color</label>
-      <input
-        class="border-2 border-black w-full text-black py-1 px-2 text-center"
-        type="text"
-        name="newProdColors[]"
-      />
-    </div>
-    <input
-      class="border-2 border-black w-1/6 text-black py-1 px-2 self-end"
-      type="color"
-      name="newProdColors[]"
-    />
-  </div>`).appendTo("#colorsInputContainer");
+    $(
+      '<div class="w-full flex text-center items-center generatedColorsContainer"><div class="w-full flex items-center flex-col"><input class="border-2 border-black w-full text-black py-1 px-2 text-center" type="text" name="newProdColors" required /></div><input class="border-2 border-black w-1/6 text-black py-1 px-2 self-end" type="color" name="newProdColorsHex" required /></div>'
+    ).appendTo("#colorsInputContainer");
+  };
+
+  const handleDeleteInput = (containerId) => {
+    $(`#${containerId} div:last-child`).remove();
   };
 
   const handleAddSize = () => {
-    $(`          <div class="flex flex-col text-center items-center">
-    <label htmlFor="newProdSizes">Valor</label>
-    <input
-      class="border-2 border-black w-full text-black py-1 px-2"
-      type="text"
-      name="newProdSizes"
-      id="newProdSizes"
-    />
-  </div>`).appendTo("#sizesInputContainer");
+    $(
+      '<div class="flex flex-col text-center items-center generatedSizesContainer"><input class="border-2 text-center border-black w-full text-black py-1 px-2" type="text" name="newProdSizes" required /></div>'
+    ).appendTo("#sizesInputContainer");
   };
+
   const handleAddImg = () => {
-    $(`              <div class="flex text-center items-center w-full">
-    <label htmlFor="newProdPhotos">Link</label>
-    <input
-      class="border-2 border-black w-full text-black py-1 px-2"
-      type="text"
-      name="newProdPhotos"
-    />
-    <img class="h-32 w-32" src=${
-      product
-        ? photo.thumbnail
-        : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
-    } alt="" />
-  </div>`).appendTo("#photosInputContainer");
+    // $(
+    //   `<div class="flex text-center items-center w-full generatedPhotosContainer"><input class="border-2 border-black w-full text-black py-1 px-2" type="text" name="newProdPhotos"/><img class="h-32 w-32 imgExample" src=${
+    //     product ? photo.thumbnail : "https://imgur.com/VYce1U1.png"
+    //   } alt="" /></div>`
+    // ).appendTo("#photosInputContainer");
+    $(
+      `<div class="flex text-center items-center w-full generatedPhotosContainer"><input class="border-2 text-center border-black w-full text-black py-1 px-2" type="text" name="newProdPhotos" required/></div>`
+    ).appendTo("#photosInputContainer");
   };
 
   return (
@@ -136,16 +112,17 @@ const ProductEditForm = ({ product, action }) => {
       onSubmit={handleSubmit}
       className="bg-slate-600 flex flex-col text-white text-lg gap-6 py-4 px-[10%]"
     >
-      <div className="flex flex-col text-center items-center">
+      <section className="flex flex-col text-center items-center">
         <label htmlFor="newProdName">Nombre</label>
         <input
           className="border-2 border-black w-full text-black py-1 px-2 text-center"
           type="text"
           name="newProdName"
           id="newProdName"
+          required
           defaultValue={product ? product.name : ""}
         />
-      </div>
+      </section>
 
       <section className="flex flex-col text-center items-center">
         <label htmlFor="newProdDesc">Descripción</label>
@@ -153,6 +130,7 @@ const ProductEditForm = ({ product, action }) => {
           className="border-2 border-black w-full text-black py-1 px-2"
           name="newProdDesc"
           id="newProdDesc"
+          required
           defaultValue={product ? product.description : ""}
         />
       </section>
@@ -164,6 +142,7 @@ const ProductEditForm = ({ product, action }) => {
           type="text"
           name="newProdPrice"
           id="newProdPrice"
+          required
           defaultValue={product ? product.price : ""}
         />
       </section>
@@ -175,6 +154,7 @@ const ProductEditForm = ({ product, action }) => {
           type="text"
           name="newProdCat"
           id="newProdCat"
+          required
           defaultValue={product ? product.category : ""}
         >
           <option value="deco">DECO</option>
@@ -187,6 +167,7 @@ const ProductEditForm = ({ product, action }) => {
             type="text"
             name="newProdCatAdd"
             id="newProdCatAdd"
+            required
           />
         )}
       </section>
@@ -198,65 +179,67 @@ const ProductEditForm = ({ product, action }) => {
             {product ? (
               product.colors.map((color, i) => (
                 <div
-                  className="flex text-center items-center w-full flex-col"
+                  className="flex text-center items-center w-full flex-col generatedColorsContainer"
                   key={i}
                 >
                   <div className="w-full flex text-center items-center">
                     <div className="w-full flex items-center flex-col">
-                      <label htmlFor="newProdColors">Nombre del color</label>
                       <input
                         className="border-2 border-black w-full text-black py-1 px-2 text-center"
                         type="text"
-                        name="newProdColors[]"
+                        name="newProdColors"
                         id="newProdColors"
                         defaultValue={color.name}
+                        required
                       />
                     </div>
                     <input
                       className="border-2 border-black w-1/6 text-black py-1 px-2 self-end"
                       type="color"
-                      name="newProdColors[]"
-                      id="newProdColors"
+                      name="newProdColorsHex"
+                      id="newProdColorsHex"
                       defaultValue={color.hex}
+                      required
                     />
                   </div>
                 </div>
               ))
             ) : (
               <>
-                <div className="w-full flex text-center items-center">
+                <div className="w-full flex text-center items-center generatedColorsContainer">
                   <div className="w-full flex items-center flex-col">
-                    <label htmlFor="newProdColors">Nombre del color</label>
                     <input
                       className="border-2 border-black w-full text-black py-1 px-2 text-center"
                       type="text"
-                      name="newProdColors[]"
+                      name="newProdColors"
                       id="newProdColors"
+                      required
                     />
                   </div>
                   <input
                     className="border-2 border-black w-1/6 text-black py-1 px-2 self-end"
                     type="color"
-                    name="newProdColors[]"
-                    id="newProdColors"
+                    name="newProdColorsHex"
+                    id="newProdColorsHex"
+                    required
                   />
                 </div>
               </>
             )}
           </div>
           <div className="w-full flex gap-2">
-            <button
-              className="w-full text-center bg-red-500 hover:bg-red-600 transition-all rounded-lg"
-              onClick={handleDeleteColor}
+            <span
+              className="w-full text-center bg-red-500 hover:bg-red-600 transition-all rounded-lg cursor-pointer"
+              onClick={() => handleDeleteInput("colorsInputContainer")}
             >
               Quitar color
-            </button>
-            <button
-              className="w-full text-center bg-green-500 hover:bg-green-600 transition-all rounded-lg"
+            </span>
+            <span
+              className="w-full text-center bg-green-500 hover:bg-green-600 transition-all rounded-lg cursor-pointer"
               onClick={handleAddColor}
             >
               Agregar color
-            </button>
+            </span>
           </div>
         </div>
       </section>
@@ -269,43 +252,43 @@ const ProductEditForm = ({ product, action }) => {
               <>
                 {product.sizes &&
                   product.sizes.map((size, i) => (
-                    <div className="flex flex-col text-center items-center w-full">
-                      <label htmlFor="newProdSizes">Valor</label>
+                    <div className="flex flex-col text-center items-center w-full generatedSizesContainer">
                       <input
                         className="border-2 border-black w-full text-black py-1 px-2 text-center"
                         type="text"
                         name="newProdSizes"
                         id="newProdSizes"
                         defaultValue={size.value}
+                        required
                       />
                     </div>
                   ))}
               </>
             ) : (
-              <div className="flex flex-col text-center items-center">
-                <label htmlFor="newProdSizes">Valor</label>
+              <div className="flex flex-col text-center items-center generatedSizesContainer">
                 <input
-                  className="border-2 border-black w-full text-black py-1 px-2"
+                  className="border-2 border-black w-full text-black py-1 px-2 text-center"
                   type="text"
                   name="newProdSizes"
                   id="newProdSizes"
+                  required
                 />
               </div>
             )}
           </div>
           <div className="w-full flex gap-2">
-            <button
-              className="w-full text-center bg-red-500 hover:bg-red-600 transition-all rounded-lg"
-              onClick={handleDeleteSize}
+            <span
+              className="w-full text-center bg-red-500 hover:bg-red-600 transition-all rounded-lg cursor-pointer"
+              onClick={() => handleDeleteInput("sizesInputContainer")}
             >
               Quitar talle
-            </button>
-            <button
-              className="w-full text-center bg-green-500 hover:bg-green-600 transition-all rounded-lg"
+            </span>
+            <span
+              className="w-full text-center bg-green-500 hover:bg-green-600 transition-all rounded-lg cursor-pointer"
               onClick={handleAddSize}
             >
               Agregar talle
-            </button>
+            </span>
           </div>
         </div>
       </section>
@@ -316,59 +299,93 @@ const ProductEditForm = ({ product, action }) => {
           <div className="w-full flex flex-col gap-2" id="photosInputContainer">
             {product ? (
               product.photos.map((photo, i) => (
-                <div className="flex text-center items-center w-full" key={i}>
+                // <div
+                //   className="flex text-center items-center w-full generatedPhotosContainer"
+                //   key={i}
+                // >
+                //   <div className="w-full flex items-center flex-col">
+                //     <label htmlFor="newProdPhotos">Link</label>
+                //     <input
+                //       className="border-2 border-black w-full text-black py-1 px-2"
+                //       type="text"
+                //       name="newProdPhotos"
+                //       id="newProdPhotos"
+                //       defaultValue={photo.original}
+                //     />
+                //   </div>
+                //   <img
+                //     className="imgExample h-32 w-32 object-cover"
+                //     src={photo.thumbnail}
+                //     alt=""
+                //   />
+                // </div>
+                <div
+                  className="flex text-center items-center w-full generatedPhotosContainer"
+                  key={i}
+                >
                   <div className="w-full flex items-center flex-col">
                     <label htmlFor="newProdPhotos">Link</label>
                     <input
-                      className="border-2 border-black w-full text-black py-1 px-2"
+                      className="border-2 border-black w-full text-black py-1 px-2 text-center"
                       type="text"
                       name="newProdPhotos"
                       id="newProdPhotos"
                       defaultValue={photo.original}
+                      required
                     />
                   </div>
-                  <img src={photo.thumbnail} alt="" />
                 </div>
               ))
             ) : (
-              <div className="flex text-center items-center w-full">
-                <label htmlFor="newProdPhotos">Link</label>
+              // <div className="flex text-center items-center w-full generatedPhotosContainer">
+              //   <input
+              //     className="border-2 border-black w-full text-black py-1 px-2"
+              //     type="text"
+              //     name="newProdPhotos"
+              //     id="newProdPhotos"
+              //   />
+              //   <img
+              //     className="imgExample h-32 w-32 object-cover"
+              //     src={
+              //       product
+              //         ? photo.thumbnail
+              //         : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
+              //     }
+              //     alt=""
+              //   />
+              // </div>
+              <div className="flex text-center items-center w-full generatedPhotosContainer">
                 <input
-                  className="border-2 border-black w-full text-black py-1 px-2"
+                  className="border-2 border-black w-full text-black py-1 px-2 text-center"
                   type="text"
                   name="newProdPhotos"
                   id="newProdPhotos"
-                />
-                <img
-                  className="h-32 w-32"
-                  src={
-                    product
-                      ? photo.thumbnail
-                      : "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
-                  }
-                  alt=""
+                  required
                 />
               </div>
             )}
           </div>
           <div className="w-full flex gap-2">
-            <button
-              className="w-full text-center bg-red-500 hover:bg-red-600 transition-all rounded-lg"
-              onClick={handleDeleteImg}
+            <span
+              className="w-full text-center bg-red-500 hover:bg-red-600 transition-all rounded-lg cursor-pointer"
+              onClick={() => handleDeleteInput("photosInputContainer")}
             >
               Quitar foto
-            </button>
-            <button
-              className="w-full text-center bg-green-500 hover:bg-green-600 transition-all rounded-lg"
+            </span>
+            <span
+              className="w-full text-center bg-green-500 hover:bg-green-600 transition-all rounded-lg cursor-pointer"
               onClick={handleAddImg}
             >
               Agregar foto
-            </button>
+            </span>
           </div>
         </div>
       </section>
 
-      <button className="py-2 px-3 w-1/2 my-2 border-2 text-center border-black transition-all bg-green-500 hover:bg-green-600 rounded-lg mx-auto">
+      <button
+        type="submit"
+        className="py-2 px-3 w-1/2 my-2 border-2 text-center border-black transition-all bg-green-500 hover:bg-green-600 rounded-lg mx-auto"
+      >
         {action}
       </button>
     </form>
