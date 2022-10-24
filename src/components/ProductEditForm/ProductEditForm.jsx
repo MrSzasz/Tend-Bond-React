@@ -53,9 +53,9 @@ const ProductEditForm = ({ product, action }) => {
     });
 
     $.each($(".generatedSizesContainer"), (i, val) => {
-      if (val.firstChild) {
+      if (val) {
         sizesForProduct.push({
-          value: val.firstChild?.value,
+          value: val.value,
         });
       }
     });
@@ -73,9 +73,14 @@ const ProductEditForm = ({ product, action }) => {
       price: Number($("#newProdPrice").val()),
       colors: colorsForProduct,
       sizes: sizesForProduct.length === 0 ? null : sizesForProduct,
-      category: addCategory === "add" ? $("#newProdCatAdd").val() : $("#newProdCat").val(),
+      category:
+        addCategory === "add"
+          ? $("#newProdCatAdd").val()
+          : $("#newProdCat").val(),
       photos: photosForProduct,
     };
+
+    console.log(getProduct);
 
     if (addCategory === "add") {
       const db = await getFirestore();
@@ -89,32 +94,29 @@ const ProductEditForm = ({ product, action }) => {
       const db = await getFirestore();
       const dataRef = doc(db, "ProductList", prodId);
       await updateDoc(dataRef, getProduct);
+      alert("¡Producto editado con exito!");
       return navigate("/fbdash");
     } else {
       const db = await getFirestore();
       await addDoc(collection(db, "ProductList"), { ...getProduct });
+      alert("¡Producto agregado con exito!");
       return navigate("/fbdash");
     }
   };
 
   const handleAddColor = () => {
     $(
-      '<div class="w-full flex text-center items-center generatedInputContainer generatedColorsContainer"><div class="w-full flex items-center flex-col"><input class="border-2 border-black w-full text-black py-1 px-2 text-center" type="text" name="newProdColors" required /></div><input class="border-2 border-black w-1/6 text-black py-1 px-2 self-end" type="color" name="newProdColorsHex" required /></div>'
+      '<div class="w-full flex flex-col text-center items-center generatedColorsContainer generatedInputContainer"><div class="w-full flex items-center flex-col"><input class="border-2 border-black w-full text-black py-1 px-2 text-center" type="text" name="newProdColors" required /></div><input class="border-2 border-black w-full text-black py-1 px-2 self-end" type="color" name="newProdColorsHex" required /></div>'
     ).appendTo("#colorsInputContainer");
   };
 
   const handleAddSize = () => {
     $(
-      '<div class="flex flex-col text-center items-center generatedInputContainer generatedSizesContainer"><input class="border-2 text-center border-black w-full text-black py-1 px-2" type="text" name="newProdSizes" required /></div>'
+      '<input class="border-2 border-black w-full text-black py-1 px-2 text-center generatedSizesContainer generatedInputContainer" type="text" name="newProdSizes" required/>'
     ).appendTo("#sizesInputContainer");
   };
 
   const handleAddImg = () => {
-    // $(
-    //   `<div class="flex text-center items-center w-full generatedPhotosContainer"><input class="border-2 border-black w-full text-black py-1 px-2" type="text" name="newProdPhotos"/><img class="h-32 w-32 imgExample" src=${
-    //     product ? photo.thumbnail : "https://imgur.com/VYce1U1.png"
-    //   } alt="" /></div>`
-    // ).appendTo("#photosInputContainer");
     $(
       `<div class="flex text-center items-center w-full generatedInputContainer generatedPhotosContainer"><input class="border-2 text-center border-black w-full text-black py-1 px-2" type="text" name="newProdPhotos" required/></div>`
     ).appendTo("#photosInputContainer");
@@ -185,23 +187,21 @@ const ProductEditForm = ({ product, action }) => {
             SELECCIONAR
           </option>
           {categoriesFromDB.length !== 0 &&
-            categoriesFromDB.map(
-              (cat) => {
-                if (product?.category === cat.name) {
-                  return (
-                    <option key={cat.id} selected value={cat.name}>
-                      {cat.name.toUpperCase()}
-                    </option>
-                  );
-                } else {
-                  return (
-                    <option key={cat.id} value={cat.name}>
-                      {cat.name.toUpperCase()}
-                    </option>
-                  );
-                }
+            categoriesFromDB.map((cat) => {
+              if (product?.category === cat.name) {
+                return (
+                  <option key={cat.id} selected value={cat.name}>
+                    {cat.name.toUpperCase()}
+                  </option>
+                );
+              } else {
+                return (
+                  <option key={cat.id} value={cat.name}>
+                    {cat.name.toUpperCase()}
+                  </option>
+                );
               }
-            )}
+            })}
           <option value="add">AGREGAR CATEGORÍA...</option>
         </select>
         {addCategory === "add" && (
@@ -218,8 +218,11 @@ const ProductEditForm = ({ product, action }) => {
       <section className="flex flex-col text-center items-center">
         <h2>Colores</h2>
         <div className="w-full flex flex-col gap-2">
-          <div className="w-full flex flex-col gap-2" id="colorsInputContainer">
-            <div className="flex text-center items-center w-full flex-col gap-2">
+          <div className="w-full flex flex-col gap-2">
+            <div
+              className="flex text-center items-center w-full flex-col gap-2"
+              id="colorsInputContainer"
+            >
               {product?.colors.map((color, i) => (
                 <div
                   className="w-full flex flex-col text-center items-center generatedColorsContainer generatedInputContainer"
@@ -267,12 +270,15 @@ const ProductEditForm = ({ product, action }) => {
       <section className="flex flex-col text-center items-center">
         <h2>Talles</h2>
         <div className="w-full flex flex-col gap-2">
-          <div className="w-full flex flex-col gap-2" id="sizesInputContainer">
-            <div className="flex flex-col text-center items-center w-full generatedSizesContainer generatedInputContainer">
+          <div className="w-full flex flex-col gap-2">
+            <div
+              className="flex flex-col text-center items-center w-full gap-2"
+              id="sizesInputContainer"
+            >
               {product?.sizes &&
                 product.sizes.map((size, i) => (
                   <input
-                    className="border-2 border-black w-full text-black py-1 px-2 text-center"
+                    className="border-2 border-black w-full text-black py-1 px-2 text-center generatedSizesContainer generatedInputContainer"
                     type="text"
                     name="newProdSizes"
                     id="newProdSizes"

@@ -43,9 +43,10 @@ const FireBaseDash = () => {
 
   const handleDelete = async (obj, id) => {
     if (confirm(`¿Estás segura que querés eliminar el producto ${obj}?`)) {
-      // const db = await getFirestore();
-      // await deleteDoc(doc(db, "ProductList", id));
-      return console.log(`Producto "${obj}" eliminado con éxito`);
+      const db = await getFirestore();
+      await deleteDoc(doc(db, "ProductList", id));
+      alert(`Producto "${obj}" eliminado con éxito`);
+      return location.reload();
     }
   };
 
@@ -100,19 +101,17 @@ const FireBaseDash = () => {
                     {product.price2 && `, $${product.price2}`}
                   </td>
                   <td>
-                    {product.sizes?.map((size) => (
-                      <>
+                    {product.sizes?.map((size,i) => (
+                      <div key={i}>
                         <span className="text-xs py-2">{size.value}</span>
-                        <br />
-                      </>
+                      </div>
                     ))}
                   </td>
                   <td>
-                    {product.colors?.map((color) => (
-                      <>
+                    {product.colors?.map((color, i) => (
+                      <div key={i}>
                         <span className="text-xs py-2">{color.name}</span>
-                        <br />
-                      </>
+                      </div>
                     ))}
                   </td>
                   <td className="bg-blue-500 hover:bg-blue-600 transition-all py-1">
