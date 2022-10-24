@@ -1,33 +1,42 @@
 import $ from "jquery";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  addDoc,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
 
 const ProductEditForm = ({ product, action }) => {
-  const [productForDB, setProductForDB] = useState({
-    name: "",
-    description: "",
-    price: "",
-    colors: [
-      {
-        hex: "",
-        name: "",
-      },
-    ],
-    sizes: [
-      {
-        value: "",
-      },
-    ],
-    category: "",
-    photos: [
-      {
-        original: "",
-        thumbnail: "",
-      },
-    ],
-  });
+  const [addCategory, setAddCategory] = useState("");
+  const [categoriesFromDB, setCategoriesFromDB] = useState([]);
+
+  const { prodId } = useParams();
+
+  const getProductsFromFirebase = async () => {
+    const db = getFirestore();
+
+    const queryCollection = collection(db, "Category");
+
+    await getDocs(queryCollection).then((res) =>
+      setCategoriesFromDB(
+        res.docs.map((item) => ({ ...item.data(), id: item.id }))
+      )
+    );
+
+    console.log(categoriesFromDB);
+  };
 
   const navigate = useNavigate();
+
+  const filterArrayFunction = () => {
+    $("select[name=newProdCat]").on("change", () => {
+      setAddCategory($("select[name=newProdCat]").val());
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,13 +73,28 @@ const ProductEditForm = ({ product, action }) => {
       price: Number($("#newProdPrice").val()),
       colors: colorsForProduct,
       sizes: sizesForProduct.length === 0 ? null : sizesForProduct,
-      category: $("#newProdCat").val(),
+      category: addCategory === "add" ? $("#newProdCatAdd").val() : $("#newProdCat").val(),
       photos: photosForProduct,
     };
 
-    console.log(getProduct);
+    if (addCategory === "add") {
+      const db = await getFirestore();
+      await addDoc(collection(db, "Category"), {
+        name: $("#newProdCatAdd").val(),
+      });
+      console.log("add category");
+    }
 
-    // navigate("/fbdash");
+    if (product) {
+      const db = await getFirestore();
+      const dataRef = doc(db, "ProductList", prodId);
+      await updateDoc(dataRef, getProduct);
+      return navigate("/fbdash");
+    } else {
+      const db = await getFirestore();
+      await addDoc(collection(db, "ProductList"), { ...getProduct });
+      return navigate("/fbdash");
+    }
   };
 
   const handleAddColor = () => {
@@ -99,6 +123,14 @@ const ProductEditForm = ({ product, action }) => {
   const handleDeleteInput = (containerId) => {
     $(`#${containerId} .generatedInputContainer:last-child`).remove();
   };
+
+  useEffect(() => {
+    getProductsFromFirebase();
+  }, []);
+
+  useEffect(() => {
+    filterArrayFunction();
+  }, [addCategory]);
 
   return (
     <form
@@ -148,13 +180,31 @@ const ProductEditForm = ({ product, action }) => {
           name="newProdCat"
           id="newProdCat"
           required
-          defaultValue={product ? product.category : ""}
         >
-          <option value="deco">DECO</option>
-          <option value="accesorios">ACCESORIOS</option>
+          <option value="" selected disabled hidden>
+            SELECCIONAR
+          </option>
+          {categoriesFromDB.length !== 0 &&
+            categoriesFromDB.map(
+              (cat) => {
+                if (product?.category === cat.name) {
+                  return (
+                    <option key={cat.id} selected value={cat.name}>
+                      {cat.name.toUpperCase()}
+                    </option>
+                  );
+                } else {
+                  return (
+                    <option key={cat.id} value={cat.name}>
+                      {cat.name.toUpperCase()}
+                    </option>
+                  );
+                }
+              }
+            )}
           <option value="add">AGREGAR CATEGORÍA...</option>
         </select>
-        {$("#newProdCat").val() === "add" && (
+        {addCategory === "add" && (
           <input
             className="border-2 border-black w-full text-black py-1 px-2 text-center"
             type="text"

@@ -1,9 +1,11 @@
 import {
   collection,
+  deleteDoc,
   getDocs,
   getFirestore,
   orderBy,
   query,
+  doc,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
@@ -38,6 +40,15 @@ const FireBaseDash = () => {
       )
       .finally(() => setLoading(false));
   };
+
+  const handleDelete = async (obj, id) => {
+    if (confirm(`¿Estás segura que querés eliminar el producto ${obj}?`)) {
+      // const db = await getFirestore();
+      // await deleteDoc(doc(db, "ProductList", id));
+      return console.log(`Producto "${obj}" eliminado con éxito`);
+    }
+  };
+
   const handleLogOut = async () => {
     await signOut(auth);
     dispatch(userLogOut());
@@ -54,10 +65,6 @@ const FireBaseDash = () => {
     <>
       <div className="overflow-y-auto">
         <div className="w-full flex flex-col justify-center">
-          <p className="w-full text-center py-2 bg-red-700 text-white uppercase">
-            IMPORTANTE El botón de eliminar SOLO FUNCIONARÁ al hacer doble
-            click, para evitar los miss clicks
-          </p>
           <Link
             to={"/fbdash/add"}
             className="py-2 px-3 w-1/2 my-2 text-center transition-all bg-green-500 hover:bg-green-600 rounded-lg mx-auto"
@@ -84,7 +91,7 @@ const FireBaseDash = () => {
               {productsFromDB.map((product) => (
                 <tr
                   key={product.id}
-                  className="text-center border-2 border-slate-700 even:bg-slate-200"
+                  className="text-center border-2 border-slate-700 even:bg-slate-200 hover:bg-slate-400"
                 >
                   <td className="text-xs py-2">{product.category}</td>
                   <td>{product.name}</td>
@@ -93,10 +100,21 @@ const FireBaseDash = () => {
                     {product.price2 && `, $${product.price2}`}
                   </td>
                   <td>
-                    {product.size != null &&
-                      product.size.forEach((size) => size)}
+                    {product.sizes?.map((size) => (
+                      <>
+                        <span className="text-xs py-2">{size.value}</span>
+                        <br />
+                      </>
+                    ))}
                   </td>
-                  <td>{product.colors.forEach((color) => color)}</td>
+                  <td>
+                    {product.colors?.map((color) => (
+                      <>
+                        <span className="text-xs py-2">{color.name}</span>
+                        <br />
+                      </>
+                    ))}
+                  </td>
                   <td className="bg-blue-500 hover:bg-blue-600 transition-all py-1">
                     <Link
                       to={`/fbdash/edit/${product.id}`}
@@ -106,7 +124,10 @@ const FireBaseDash = () => {
                     </Link>
                   </td>
                   <td className="bg-red-500 transition-all hover:bg-red-600 py-1">
-                    <button className="w-full flex justify-center">
+                    <button
+                      className="w-full flex justify-center"
+                      onClick={() => handleDelete(product.name, product.id)}
+                    >
                       <MdDelete />
                     </button>
                   </td>
